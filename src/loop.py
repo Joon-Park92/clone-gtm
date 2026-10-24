@@ -9,6 +9,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Protocol
 from refinement import assess
+from feedback import collect, learn
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -132,7 +133,7 @@ def decide(metrics, cfg, previous_metrics=None):
             'one_change': '설명·신청·추적 과정 중 병목 하나 확인'}
 
 
-def build_run(cfg, inputs, previous=None, now=None):
+def build_run(cfg, inputs, previous=None, now=None, known_posts=None):
     now = now or datetime.now(timezone.utc)
     require(cfg['schema_version'] == 1, 'Unsupported config schema')
     if cfg.get('simulation'):
@@ -200,6 +201,18 @@ def build_run(cfg, inputs, previous=None, now=None):
         state = 'measured' if metrics['status'] == 'measured' else 'awaiting_measurement'
     else:
         state = 'awaiting_publication' if approval_ok else 'awaiting_approval'
+    posts = dict(known_posts or {})
+    if previous:
+        posts.update(previous.get('published_posts', {}))
+        if previous['publication']['status'] == 'posted':
+            posts[previous['publication']['url']] = {'asset_id': previous['asset']['asset_id'],
+                                                    'posted_at': previous['publication']['posted_at']}
+    if receipt['status'] == 'posted':
+        posts[receipt['url']] = {'asset_id': asset_id, 'posted_at': receipt['posted_at']}
+    feedback = collect(inputs.get('feedback', {'status': 'unconnected'}), cfg['campaign_id'], posts,
+                       previous.get('feedback') if previous else None, now,
+                       cfg.get('feedback_collection', {}).get('community_targets', []))
+    prior_metrics = previous['measurement'] if previous else None
     return {
         'schema_version': 1, 'run_id': 'RUN-' + now.strftime('%Y%m%dT%H%M%S%fZ') + '-' + uuid.uuid4().hex[:6],
         'campaign_id': cfg['campaign_id'], 'experiment_id': cfg['experiment_id'],
@@ -214,7 +227,9 @@ def build_run(cfg, inputs, previous=None, now=None):
         'approval': approval_record,
         'publication': receipt, 'measurement': metrics,
         'content_review': assess(inputs.get('evaluation', {'status': 'unconnected'}), body),
-        'next_action': decide(metrics, cfg, previous['measurement'] if previous else None),
+        'published_posts': posts, 'feedback': feedback,
+        'metric_diagnostic': decide(metrics, cfg, prior_metrics),
+        'next_action': learn(feedback, metrics, prior_metrics),
         'next_execution': {'suggested_at': (now + timedelta(days=1)).isoformat(),
                            'owner': cfg['schedule']['owner'], 'scheduled': False,
                            'mode': ('automatic_pending_connection' if cfg['schedule'].get('requested_mode') == 'manual_start_then_daily' else 'manual')},
@@ -242,7 +257,13 @@ def execute(config_path, output, now=None):
                   for name in ('research', 'approval', 'publication', 'measurement')}
         if 'evaluation' in cfg['adapters']:
             inputs['evaluation'] = adapter(cfg['adapters']['evaluation'], config_path.parent).fetch({'config': cfg, 'previous': previous})
-        result = build_run(cfg, inputs, previous, now=now)
+        posts = {r['publication']['url']: {'asset_id': r['asset']['asset_id'], 'posted_at': r['publication']['posted_at']}
+                 for r in records if r['publication']['status'] == 'posted'}
+        if 'feedback' in cfg['adapters']:
+            inputs['feedback'] = adapter(cfg['adapters']['feedback'], config_path.parent).fetch(
+                {'config': cfg, 'previous': previous, 'published_posts': posts,
+                 'community_targets': cfg.get('feedback_collection', {}).get('community_targets', [])})
+        result = build_run(cfg, inputs, previous, now=now, known_posts=posts)
         target = output / (result['run_id'] + '.json')
         # Exclusive creation plus a lock prevents silent history replacement.
         with target.open('x', encoding='utf-8') as stream:

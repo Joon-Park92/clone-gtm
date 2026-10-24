@@ -67,7 +67,8 @@ class LoopTests(unittest.TestCase):
         self.measured()
         run = build_run(self.cfg, self.inputs, now=NOW)
         self.assertEqual(run['measurement']['new_attributed_signups'], 0)
-        self.assertEqual(run['next_action']['kind'], 'conversion')
+        self.assertEqual(run['metric_diagnostic']['kind'], 'conversion')
+        self.assertEqual(run['next_action']['kind'], 'collect_reactions')
         self.assertNotIn('synthetic@example.invalid', json.dumps(run))
 
     def test_receipt_rejects_unverified_or_invalid_measurement(self):

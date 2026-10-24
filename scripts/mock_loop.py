@@ -127,6 +127,39 @@ class MockMeasurement:
         }
 
 
+class MockFeedback:
+    def __init__(self):
+        self.events = []
+
+    def fetch(self, cfg, day, at, receipts):
+        posts = [p for p in receipts.values() if p['status'] == 'posted']
+        if not posts:
+            return {'status': 'pending'}
+        if day in (1, 3):
+            post = posts[-1]
+            category = 'misunderstanding' if day == 1 else 'signup_friction'
+            for index in range(2):
+                event_id = f'EV-MOCK-REACTION-{day}-{index}'
+                self.events.append({'event_id': event_id, 'source_url': post['url']+'#'+event_id,
+                    'target_url': post['url'], 'source_kind': 'own_post', 'created_at': at.isoformat(),
+                    'evidence_summary': 'SYNTHETIC: 예약 성공 보장인지 혼동' if day == 1 else 'SYNTHETIC: 메일 신청 방법을 찾기 어려움',
+                    'classification_reason': 'Synthetic explicit objection fixture', 'category': category,
+                    'audience_fit': 'yes', 'actor_type': 'external', 'author_key': f'ANON-MOCK-{day}-{index}'})
+        community = 'https://example.invalid/mock-community'
+        if day == 1:
+            self.events.append({'event_id':'EV-MOCK-COMMUNITY', 'source_url':community+'#reply',
+                'target_url':community, 'source_kind':'community', 'created_at':at.isoformat(),
+                'evidence_summary':'SYNTHETIC: 직접 예약 앱을 확인하는 편이 좋다',
+                'classification_reason':'Synthetic counterevidence, not campaign response',
+                'category':'no_need','audience_fit':'yes','actor_type':'external','author_key':'ANON-MOCK-C'})
+        coverage = [{'target_url': p['url'], 'kind':'own_post', 'status':'complete',
+                     'checked_at':at.isoformat(), 'reason':'Synthetic full reply fixture'} for p in posts]
+        coverage.append({'target_url':community, 'kind':'community','status':'complete',
+                         'checked_at':at.isoformat(),'reason':'Synthetic discussion fixture'})
+        return {'status':'collected','campaign_id':cfg['campaign_id'],'observed_at':at.isoformat(),
+                'coverage':coverage,'events':copy.deepcopy(self.events)}
+
+
 class VirtualScheduler:
     def ticks(self):
         yield 0, START, 'manual_bootstrap_mock'
@@ -148,22 +181,24 @@ def run_demo(output):
                change_note='Synthetic bootstrap, not production or real approval')
     cfg['draft']['body'] = 'MOCK ONLY: ' + cfg['draft']['body']
     research, approval, publisher, metrics = MockResearch(), MockApproval(), MockPublisher(), MockMeasurement()
+    feedback = MockFeedback()
     records, rows, previous, hashes, last_inputs = [], [], None, {}, None
     for day, at, trigger in VirtualScheduler().ticks():
         if day == 2:
             assert previous['next_action']['kind'] == 'message'
             lines = cfg['draft']['body'].splitlines()
-            lines[0] = 'MOCK ONLY: 인기 식당 예약 확인을 카카오톡으로 부탁한다면?'
+            lines[0] = 'MOCK ONLY: 예약 성공 보장이 아닌, 가능한 시간 조회를 부탁한다면?'
             cfg['draft']['body'] = '\n'.join(lines)
             cfg['change_note'] = 'Applied prior message recommendation: change opening line only'
         if day == 4:
-            assert previous['next_action']['kind'] == 'follow_up'
-            cfg['draft']['body'] += '\nMOCK ONLY: 일요일 두 명 예약 가능 여부 요청 예시.'
-            cfg['change_note'] = 'Applied prior follow-up recommendation: add one request example'
+            assert previous['next_action']['kind'] == 'conversion'
+            cfg['draft']['body'] += '\nMOCK ONLY: 신청 안내 페이지에서 이메일 신청 방법을 확인하세요.'
+            cfg['change_note'] = 'Applied observed signup-friction hypothesis: clarify one application instruction'
         review = approval.fetch(cfg, at, approve=day not in (0, 2))
         payloads = {'research': research.fetch(), 'approval': review,
                     'publication': publisher.fetch(cfg, review, at, uncertain=day == 4, resolve=day == 5),
                     'measurement': metrics.fetch(cfg, day, at)}
+        payloads['feedback'] = feedback.fetch(cfg, day, at, publisher.receipts)
         step = output / 'inputs' / f'{day:02d}'
         cfg['adapters'] = {name: {'driver': 'manual_json', 'path': name + '.json'} for name in payloads}
         for name, payload in payloads.items():
@@ -186,6 +221,15 @@ def run_demo(output):
                                              'measured', 'publication_uncertain', 'measured', 'measured', 'measured']
     assert [r['measurement']['new_attributed_signups'] for r in records] == [None, 0, 2, 3, 3, 3, 3, 3]
     assert publisher.send_calls == 3
+    assert records[1]['next_action']['target_category'] == 'misunderstanding'
+    assert records[3]['next_action']['target_category'] == 'signup_friction'
+    assert records[4]['next_action']['kind'] == 'observe'
+    assert len(records[-1]['feedback']['events']) == 5
+    assert len(records[-1]['published_posts']) == 3
+    assert records[-1]['feedback']['collection_complete'] is True
+    assert records[-1]['feedback']['events'][0]['asset_id'] == records[1]['asset']['asset_id']
+    assert records[-1]['asset']['asset_id'] != records[1]['asset']['asset_id']
+    assert records[1]['next_action']['reaction_summary']['community']['no_need'] == 1
     assert records[2]['publication']['url'] is None  # Changed draft waits for new approval.
     assert records[-1]['measurement']['unknown_source_signups'] == 1
     assert records[-1]['measurement']['excluded'] == {'existing': 1, 'duplicate': 1, 'test': 1, 'spam': 1}
@@ -211,6 +255,7 @@ def run_demo(output):
     assert (ROOT / 'config/loop.json').read_bytes() == original_config
     report = {'simulation_only': True, 'campaign_id': CAMPAIGN, 'result': 'PASS',
               'manual_bootstrap_count': 1, 'virtual_daily_ticks': 7,
+              'reaction_events': 5, 'reaction_driven_changes': ['misunderstanding', 'signup_friction'],
               'mock_publish_send_calls': publisher.send_calls, 'mock_final_signups': 3,
               'negative_cases_rejected': rejected, 'rows': rows,
               'external_calls': 0, 'real_credentials_read': False,
@@ -227,7 +272,7 @@ def run_demo(output):
 
 처음 1회 수동 시작을 모의한 뒤 가상 시계를 24시간씩 전진해 7번 반복했다. 실제 시간을 기다리거나 스케줄러를 등록한 것은 아니다. 7일 종료 뒤 추가 실행은 없다.
 
-확인: 승인 전 게시 대기, 이전 결과 기반 문안 변경 및 새 승인, 승인 대기 중 측정 지속, 모의 기존/중복/테스트/스팸 각 1건 제외, 출처 불명 1건 별도 처리, 캠페인 누적 최종 3건 유지, 불확실 게시의 재전송 없이 영수증 확인, 이전 기록 보존. 승인 없음·승인 후 문안 변경·계정 불일치·기존 기준 미확인은 모두 코어에서 거부했다.
+확인: 게시글별 댓글·답글과 커뮤니티 반대 의견 5건의 합성 수집, 중복 재수집 시 재수정 방지, 오해 반응→설명 변경·신청 마찰→신청 안내 변경, 승인 전 게시 대기 및 새 승인, 승인 대기 중 측정 지속, 모의 기존/중복/테스트/스팸 각 1건 제외, 출처 불명 1건 별도 처리, 캠페인 누적 최종 3건 유지, 불확실 게시의 재전송 없이 영수증 확인, 이전 기록 보존. 승인 없음·승인 후 문안 변경·계정 불일치·기존 기준 미확인은 모두 코어에서 거부했다.
 
 모의 게시 호출은 총 3회이며 가상 날짜가 지나도 같은 콘텐츠를 다시 보내지 않았다. Mock Publisher의 idempotency와 합성 신청 집계 로직은 테스트 더블이며 실서비스 Adapter 구현/보장을 뜻하지 않는다. 실제 승인 기록이나 실제 트랙션으로 사용하지 않는다.
 

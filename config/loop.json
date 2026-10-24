@@ -41,6 +41,10 @@
     "evaluation": {
       "driver": "unconnected",
       "intended_provider": "evidence_bound_agent_review"
+    },
+    "feedback": {
+      "driver": "unconnected",
+      "intended_provider": "threads_comments_and_public_community_mcp_or_manual"
     }
   },
   "learning": {
@@ -71,5 +75,18 @@
     "profile_source": "user_provided_handle_url_constructed",
     "profile_verified": false,
     "credentials_file": "../private/credentials/threads.json"
+  },
+  "feedback_collection": {
+    "own_posts": "all_campaign_publication_receipts",
+    "include_replies": true,
+    "community_targets": [],
+    "community_discovery_queries": [
+      "캐치테이블 날짜 바꿔 예약 확인 번거롭다",
+      "식당 예약 앱 확인 자동화 개인정보"
+    ],
+    "collection_policy": "all_accessible_reactions_in_window_not_only_positive",
+    "cadence_hours": 24,
+    "raw_data_location": "private/feedback/",
+    "threshold_basis": "src/feedback.py의 독립 작성자 2명 규칙은 실험 후보용; 수요·인과 검증 아님"
   }
 }

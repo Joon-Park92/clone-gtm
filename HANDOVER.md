@@ -1,7 +1,7 @@
 # Mu GTM Loop — 다음 세션 인계
 
 기준일: 2026-10-24, Asia/Seoul. 작업 폴더: `/home/sean/personal/clone-project`.
-기준 구현 커밋: `af59f12` (근거 기반 Rubric·제한된 수정 루프). 이 문서는 별도 후속 커밋으로 저장한다.
+최신 방향: 사용자 반응·신청 전환 중심으로 수정. git log에서 최신 커밋을 확인한다. 콘텐츠 평가 중심의 af59f12 설계는 보조 검토로 변경됐다.
 
 ## 바로 시작할 일
 
@@ -9,11 +9,11 @@
 
 1. 이 문서, `PLAN.md`, `docs/gtm/rubric.md`, `config/loop.json`을 읽고 Git 상태를 확인한다.
 2. 사용자의 최우선은 **루프 안에서 스스로 개선하는 판단 구조**다. 구체 MCP·게시·메일·스케줄러 구현은 Adapter로 추상화하고 미룬다.
-3. 실제 Threads 초안에 Rubric을 적용해 근거와 함께 비평하고, 신청 CTA 하나에 집중한 후보를 만든다. 현재 초안은 신청 안내와 댓글 질문이 함께 있어 경쟁할 수 있다는 편집 가설이 있다. 전환 효과는 아직 미확인이다.
+3. 이전 게시글의 댓글·답글과 관련 커뮤니티 반응을 수집할 대상을 만든다. 현재 실제 posted URL은 없다. docs/gtm/reaction-collection.md를 읽고 실제 반응·신청에서 병목을 선택한다. 콘텐츠 점수를 이유로 CTA를 먼저 고치지 않는다.
 4. 원본과 후보, 전후 평가, 수정 변수 하나, 예측, 다음 관측, 중단 조건을 실행 artifact로 남긴다. `prompts/review-and-refine.md`를 따른다.
 5. 필요 시 Mock으로 검증하고 활동 이력·발표 문서를 갱신한다. 실제 게시 전 최종본을 사용자에게 보여주고 명시 승인을 받는다.
 
-현재 외부 실행을 기다릴 필요 없이 가능한 일은 실제 초안 비평·수정 후보·학습 기록 정교화다. 외부 연결·수신 확인·게시·반복 등록은 별도 미완료 작업이다.
+현재 외부 실행을 기다릴 필요 없이 가능한 일은 게시 이력·커뮤니티 관측 대상 준비와 반응 수집·학습 기록 정교화다. 외부 연결·수신 확인·게시·반복 등록은 별도 미완료 작업이다.
 
 ## 사용자 결정과 권한
 
@@ -52,7 +52,7 @@ python3 scripts/mock_loop.py
 python3 scripts/mock_refinement.py
 ```
 
-최근 검증은 **21개 테스트 PASS**다. 위 Mock 명령은 매번 새 `runs/mock/` 디렉터리를 만든다. 문서만 수정했다면 테스트를 불필요하게 반복할 필요는 없다.
+최근 검증은 **32개 테스트 PASS**다. 위 Mock 명령은 매번 새 `runs/mock/` 디렉터리를 만든다. 문서만 수정했다면 테스트를 불필요하게 반복할 필요는 없다.
 
 - `src/loop.py`: unconnected/manual_json Adapter, 입력 계약 검증, 사람 승인·본문 해시·게시 영수증 연결, 누적 신청 집계 검증, 이전 실행 참조, 잠금·새 실행 파일 기록.
 - `config/loop.json`: 실제 캠페인 `MU-KO-001`, 기간 미확정, 귀속 미검증. research는 정제된 JSON 입력이고 approval/publication/measurement/evaluation은 unconnected.
@@ -108,4 +108,13 @@ python3 scripts/mock_refinement.py
 
 ## 다음 세션에 붙여넣을 메시지
 
-> `/home/sean/personal/clone-project/HANDOVER.md`를 읽고 이어서 실행해줘. 현재 우선순위는 인프라 연결보다 근거 기반 Rubric과 자기개선 루프다. 먼저 실제 Threads 초안을 비평하고 단일 CTA 후보를 같은 기준으로 재평가해 실행 기록과 발표 문서를 업데이트해줘. 구체 연동은 Adapter/Mock으로 유지해도 된다. 실제 게시 전에는 반드시 내 검토와 명시 승인을 받아라. 변경은 실제 파일로 저장하고 Git 이력에 남겨라.
+> `/home/sean/personal/clone-project/HANDOVER.md`를 읽고 이어서 실행해줘. 현재 우선순위는 인프라 연결보다 근거 기반 Rubric과 자기개선 루프다. 먼저 이전 게시물 댓글·답글과 관련 커뮤니티 반응의 수집 대상을 확인하고, 실제 반응·신청에 기반한 병목 판단과 다음 실험을 준비해 실행 기록과 발표 문서를 업데이트해줘. 콘텐츠 점수 최적화를 주 루프로 삼지 마라. 구체 연동은 Adapter/Mock으로 유지해도 된다. 실제 게시 전에는 반드시 내 검토와 명시 승인을 받아라. 변경은 실제 파일로 저장하고 Git 이력에 남겨라.
+
+## 최신 변경 — 반응 중심 학습이 우선
+
+- 주 Rubric: docs/gtm/rubric.md. 이전 콘텐츠 기준은 content-checklist.md로 이동했다.
+- 수집 계약: docs/gtm/reaction-collection.md. FeedbackAdapter는 unconnected/manual_json. 실제 댓글 API 수집은 아직 없다.
+- src/feedback.py: 전체 과거 게시 URL에 연결된 반응, 커뮤니티 구분, 수집 누락·중복·독립 작성자, 병목 선택. next_action은 반응 기반이며 기존 수치 규칙은 metric_diagnostic에만 남긴다.
+- 32개 테스트 및 최신 7일 Mock 통과: runs/mock/DEMO-20261024T081424-142339/report.md. 합성 반응 5건으로 제품 오해→설명 수정, 신청 마찰→안내 수정, 재수집→유지를 검증했다.
+- 원문 수집·분류·ICP 판정은 Adapter/에이전트 책임이다. 코어는 입력과 선택 규칙을 검사하며 실제 모델 판단이나 인과 효과를 검증하지 않는다.
+- 동일 event_id의 관측 변경은 거부한다. 정정·삭제·재분류 자동 처리와 전후 비교의 종합 효과 판단은 미구현이다.

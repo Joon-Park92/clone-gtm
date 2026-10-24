@@ -1,0 +1,11 @@
+{
+  "status": "approved",
+  "asset_id": "MOCK-MU-KO-001-A-dc9e3f3b4707855c",
+  "content_sha256": "dc9e3f3b4707855cc44883b700ed4ebfb1499af065756521fb384b0f6d1f8920",
+  "scope": "single_post",
+  "human_reviewed": true,
+  "channel": "mock_threads",
+  "account_ref": "mock-account",
+  "approved_at": "2026-10-03T23:58:00+00:00",
+  "simulation_only": true
+}

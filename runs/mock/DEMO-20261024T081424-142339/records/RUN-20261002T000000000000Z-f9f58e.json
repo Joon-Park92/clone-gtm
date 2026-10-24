@@ -1,0 +1,252 @@
+{
+  "schema_version": 1,
+  "run_id": "RUN-20261002T000000000000Z-f9f58e",
+  "campaign_id": "MOCK-MU-KO-001",
+  "experiment_id": "MOCK-EXP-001",
+  "started_at": "2026-10-02T00:00:00+00:00",
+  "timezone": "Asia/Seoul",
+  "state": "measured",
+  "mode": "mock_simulation",
+  "previous_run": "RUN-20261001T000000000000Z-74cf6a",
+  "hypothesis": "인기 식당 예약을 위해 모바일 앱에서 가능한 날짜·시간을 확인하는 사람은 그 앱 조작을 카카오톡으로 맡기는 사용 방식에 관심을 갖고 사전 신청할 수 있다.",
+  "previous_recommendation": {
+    "kind": "collect_reactions",
+    "reason": "댓글·커뮤니티 반응 미수집; 무반응이 아님",
+    "one_change": "게시 이력의 URL과 커뮤니티 관측 대상을 수집 Adapter에 전달",
+    "evidence_ids": [],
+    "signup_delta": null,
+    "metric_status": "pending",
+    "effect": "not_established",
+    "publication_authorized": false,
+    "reaction_summary": {
+      "own_post": {
+        "signup_friction": 0,
+        "misunderstanding": 0,
+        "trust": 0,
+        "no_need": 0,
+        "need": 0,
+        "interest": 0,
+        "other": 0
+      },
+      "community": {
+        "signup_friction": 0,
+        "misunderstanding": 0,
+        "trust": 0,
+        "no_need": 0,
+        "need": 0,
+        "interest": 0,
+        "other": 0
+      }
+    },
+    "coverage_complete": false
+  },
+  "change_note": "Synthetic bootstrap, not production or real approval",
+  "research": {
+    "status": "observed",
+    "signals": [
+      {
+        "url": "https://example.invalid/mock-customer",
+        "published_at": "2026-10-01T00:00:00+00:00",
+        "problem": "SYNTHETIC: 앱에서 날짜를 바꿔 확인하기 번거롭다.",
+        "fit": "yes",
+        "selection_reason": "Synthetic ICP fixture, not a real customer"
+      }
+    ]
+  },
+  "asset": {
+    "asset_id": "MOCK-MU-KO-001-A-28ebf5b8ddb8711f",
+    "body": "MOCK ONLY: “이번 토요일 저녁, 두 명 예약 가능한지 확인해줘.”\n\n인기 식당에 가려고 모바일 앱을 열어 날짜와 시간을 확인하는 일, 카카오톡으로 부탁할 수 있다면 어떨까요?\n\nMu를 만드는 팀입니다. 식당 예약 확인부터 배송 조회, 장바구니 담기까지, 모바일 앱을 직접 조작하는 개인 비서를 준비하고 있어요.\n\n현재 사전 사용 신청을 받고 있습니다.\n제품 소개·신청 안내: https://mu.pairful.ai/ko\n\nMu에 가장 먼저 맡기고 싶은 앱 작업은 무엇인가요?",
+    "content_sha256": "28ebf5b8ddb8711fc1308b6fcac006564a9168141e19d0d8f830cd0f5358e3a0",
+    "cta": "Mu 사전 사용 신청 안내",
+    "attribution": {
+      "method": "email_subject_code",
+      "verified": true,
+      "campaign_code": "MOCK-MU-KO-001"
+    }
+  },
+  "approval": {
+    "status": "approved",
+    "matched": true,
+    "asset_id": "MOCK-MU-KO-001-A-28ebf5b8ddb8711f",
+    "content_sha256": "28ebf5b8ddb8711fc1308b6fcac006564a9168141e19d0d8f830cd0f5358e3a0",
+    "channel": "mock_threads",
+    "account_ref": "mock-account",
+    "scope": "single_post",
+    "approved_at": "2026-10-01T23:58:00+00:00",
+    "human_reviewed": true
+  },
+  "publication": {
+    "status": "posted",
+    "url": "https://example.invalid/mock-post/MOCK-MU-KO-001-A-28ebf5b8ddb8711f",
+    "posted_at": "2026-10-01T23:59:00+00:00"
+  },
+  "measurement": {
+    "status": "measured",
+    "new_attributed_signups": 0,
+    "unknown_source_signups": 0,
+    "observed_at": "2026-10-02T00:00:00+00:00",
+    "through": "2026-10-02T00:00:00+00:00",
+    "cumulative": true,
+    "source_method": "email_subject_code",
+    "excluded": {
+      "existing": 0,
+      "duplicate": 0,
+      "test": 0,
+      "spam": 0
+    },
+    "evidence_refs": [
+      "EV-MOCK-SYNTHETIC-ONLY"
+    ],
+    "auxiliary": {
+      "impressions": 200,
+      "visits": 5
+    }
+  },
+  "content_review": {
+    "status": "unconnected",
+    "decision": "needs_review",
+    "weakest": null,
+    "market_validation": "not_established"
+  },
+  "published_posts": {
+    "https://example.invalid/mock-post/MOCK-MU-KO-001-A-28ebf5b8ddb8711f": {
+      "asset_id": "MOCK-MU-KO-001-A-28ebf5b8ddb8711f",
+      "posted_at": "2026-10-01T23:59:00+00:00"
+    }
+  },
+  "feedback": {
+    "status": "collected",
+    "events": [
+      {
+        "event_id": "EV-MOCK-REACTION-1-0",
+        "source_url": "https://example.invalid/mock-post/MOCK-MU-KO-001-A-28ebf5b8ddb8711f#EV-MOCK-REACTION-1-0",
+        "target_url": "https://example.invalid/mock-post/MOCK-MU-KO-001-A-28ebf5b8ddb8711f",
+        "source_kind": "own_post",
+        "created_at": "2026-10-02T00:00:00+00:00",
+        "evidence_summary": "SYNTHETIC: 예약 성공 보장인지 혼동",
+        "classification_reason": "Synthetic explicit objection fixture",
+        "category": "misunderstanding",
+        "audience_fit": "yes",
+        "actor_type": "external",
+        "author_key": "ANON-MOCK-1-0",
+        "asset_id": "MOCK-MU-KO-001-A-28ebf5b8ddb8711f"
+      },
+      {
+        "event_id": "EV-MOCK-REACTION-1-1",
+        "source_url": "https://example.invalid/mock-post/MOCK-MU-KO-001-A-28ebf5b8ddb8711f#EV-MOCK-REACTION-1-1",
+        "target_url": "https://example.invalid/mock-post/MOCK-MU-KO-001-A-28ebf5b8ddb8711f",
+        "source_kind": "own_post",
+        "created_at": "2026-10-02T00:00:00+00:00",
+        "evidence_summary": "SYNTHETIC: 예약 성공 보장인지 혼동",
+        "classification_reason": "Synthetic explicit objection fixture",
+        "category": "misunderstanding",
+        "audience_fit": "yes",
+        "actor_type": "external",
+        "author_key": "ANON-MOCK-1-1",
+        "asset_id": "MOCK-MU-KO-001-A-28ebf5b8ddb8711f"
+      },
+      {
+        "event_id": "EV-MOCK-COMMUNITY",
+        "source_url": "https://example.invalid/mock-community#reply",
+        "target_url": "https://example.invalid/mock-community",
+        "source_kind": "community",
+        "created_at": "2026-10-02T00:00:00+00:00",
+        "evidence_summary": "SYNTHETIC: 직접 예약 앱을 확인하는 편이 좋다",
+        "classification_reason": "Synthetic counterevidence, not campaign response",
+        "category": "no_need",
+        "audience_fit": "yes",
+        "actor_type": "external",
+        "author_key": "ANON-MOCK-C",
+        "asset_id": null
+      }
+    ],
+    "new_event_ids": [
+      "EV-MOCK-REACTION-1-0",
+      "EV-MOCK-REACTION-1-1",
+      "EV-MOCK-COMMUNITY"
+    ],
+    "coverage": [
+      {
+        "target_url": "https://example.invalid/mock-post/MOCK-MU-KO-001-A-28ebf5b8ddb8711f",
+        "kind": "own_post",
+        "status": "complete",
+        "checked_at": "2026-10-02T00:00:00+00:00",
+        "reason": "Synthetic full reply fixture"
+      },
+      {
+        "target_url": "https://example.invalid/mock-community",
+        "kind": "community",
+        "status": "complete",
+        "checked_at": "2026-10-02T00:00:00+00:00",
+        "reason": "Synthetic discussion fixture"
+      }
+    ],
+    "missing_post_urls": [],
+    "collection_complete": true,
+    "observed_at": "2026-10-02T00:00:00+00:00"
+  },
+  "metric_diagnostic": {
+    "kind": "message",
+    "reason": "노출 대비 방문 표본 부족; 원인 미확정",
+    "one_change": "메시지 첫 문장 하나 변경"
+  },
+  "next_action": {
+    "kind": "message",
+    "reason": "제품 오해 반응 관측; 독립 작성자 2명 이상, 실험 후보",
+    "one_change": "반응에서 드러난 오해를 만드는 설명 한 곳 수정",
+    "evidence_ids": [
+      "EV-MOCK-REACTION-1-0",
+      "EV-MOCK-REACTION-1-1"
+    ],
+    "signup_delta": null,
+    "metric_status": "measured",
+    "effect": "not_established",
+    "publication_authorized": false,
+    "reaction_summary": {
+      "own_post": {
+        "signup_friction": 0,
+        "misunderstanding": 2,
+        "trust": 0,
+        "no_need": 0,
+        "need": 0,
+        "interest": 0,
+        "other": 0
+      },
+      "community": {
+        "signup_friction": 0,
+        "misunderstanding": 0,
+        "trust": 0,
+        "no_need": 1,
+        "need": 0,
+        "interest": 0,
+        "other": 0
+      }
+    },
+    "coverage_complete": true,
+    "target_category": "misunderstanding",
+    "hypothesis": "제품 오해가 사전 신청을 막을 수 있다",
+    "alternative": "도달 대상 차이·제품 미출시·다른 신청 마찰도 설명 가능",
+    "prediction": "같은 문제의 반응이 줄고 확인된 신규 귀속 신청이 늘어나는지 관측",
+    "next_observation": "다음 24시간 반응과 신청 증분; 비교 기간·도달·귀속 범위를 함께 기록",
+    "stop_rule": "측정 불가·비교 조건 차이·표본 부족이면 효과 보류; 악화하면 변경 재검토",
+    "fixed_conditions": [
+      "channel",
+      "audience hypothesis",
+      "offer"
+    ],
+    "counterevidence_ids": []
+  },
+  "next_execution": {
+    "suggested_at": "2026-10-03T00:00:00+00:00",
+    "owner": "virtual_scheduler_only",
+    "scheduled": false,
+    "mode": "automatic_pending_connection"
+  },
+  "adapter_status": {
+    "research": "observed",
+    "approval": "approved",
+    "publication": "posted",
+    "measurement": "measured",
+    "feedback": "collected"
+  }
+}

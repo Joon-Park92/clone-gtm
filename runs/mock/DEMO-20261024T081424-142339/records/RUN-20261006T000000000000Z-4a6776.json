@@ -1,0 +1,283 @@
+{
+  "schema_version": 1,
+  "run_id": "RUN-20261006T000000000000Z-4a6776",
+  "campaign_id": "MOCK-MU-KO-001",
+  "experiment_id": "MOCK-EXP-001",
+  "started_at": "2026-10-06T00:00:00+00:00",
+  "timezone": "Asia/Seoul",
+  "state": "measured",
+  "mode": "mock_simulation",
+  "previous_run": "RUN-20261005T000000000000Z-d3ea35",
+  "hypothesis": "인기 식당 예약을 위해 모바일 앱에서 가능한 날짜·시간을 확인하는 사람은 그 앱 조작을 카카오톡으로 맡기는 사용 방식에 관심을 갖고 사전 신청할 수 있다.",
+  "previous_recommendation": {
+    "kind": "observe",
+    "reason": "새 적격 반응 없음; 기존 근거만으로 재수정하지 않음",
+    "one_change": "현재 조건 유지하고 추가 관측",
+    "evidence_ids": [],
+    "signup_delta": 0,
+    "metric_status": "measured",
+    "effect": "not_established",
+    "publication_authorized": false,
+    "reaction_summary": {
+      "own_post": {
+        "signup_friction": 2,
+        "misunderstanding": 2,
+        "trust": 0,
+        "no_need": 0,
+        "need": 0,
+        "interest": 0,
+        "other": 0
+      },
+      "community": {
+        "signup_friction": 0,
+        "misunderstanding": 0,
+        "trust": 0,
+        "no_need": 1,
+        "need": 0,
+        "interest": 0,
+        "other": 0
+      }
+    },
+    "coverage_complete": true
+  },
+  "change_note": "Applied observed signup-friction hypothesis: clarify one application instruction",
+  "research": {
+    "status": "observed",
+    "signals": [
+      {
+        "url": "https://example.invalid/mock-customer",
+        "published_at": "2026-10-01T00:00:00+00:00",
+        "problem": "SYNTHETIC: 앱에서 날짜를 바꿔 확인하기 번거롭다.",
+        "fit": "yes",
+        "selection_reason": "Synthetic ICP fixture, not a real customer"
+      }
+    ]
+  },
+  "asset": {
+    "asset_id": "MOCK-MU-KO-001-A-7f8e91ad41374451",
+    "body": "MOCK ONLY: 예약 성공 보장이 아닌, 가능한 시간 조회를 부탁한다면?\n\n인기 식당에 가려고 모바일 앱을 열어 날짜와 시간을 확인하는 일, 카카오톡으로 부탁할 수 있다면 어떨까요?\n\nMu를 만드는 팀입니다. 식당 예약 확인부터 배송 조회, 장바구니 담기까지, 모바일 앱을 직접 조작하는 개인 비서를 준비하고 있어요.\n\n현재 사전 사용 신청을 받고 있습니다.\n제품 소개·신청 안내: https://mu.pairful.ai/ko\n\nMu에 가장 먼저 맡기고 싶은 앱 작업은 무엇인가요?\nMOCK ONLY: 신청 안내 페이지에서 이메일 신청 방법을 확인하세요.",
+    "content_sha256": "7f8e91ad41374451659e9eb3a0c6b92263d27e4253e1f83b0b6ebebd41405771",
+    "cta": "Mu 사전 사용 신청 안내",
+    "attribution": {
+      "method": "email_subject_code",
+      "verified": true,
+      "campaign_code": "MOCK-MU-KO-001"
+    }
+  },
+  "approval": {
+    "status": "approved",
+    "matched": true,
+    "asset_id": "MOCK-MU-KO-001-A-7f8e91ad41374451",
+    "content_sha256": "7f8e91ad41374451659e9eb3a0c6b92263d27e4253e1f83b0b6ebebd41405771",
+    "channel": "mock_threads",
+    "account_ref": "mock-account",
+    "scope": "single_post",
+    "approved_at": "2026-10-04T23:58:00+00:00",
+    "human_reviewed": true
+  },
+  "publication": {
+    "status": "posted",
+    "url": "https://example.invalid/mock-post/MOCK-MU-KO-001-A-7f8e91ad41374451",
+    "posted_at": "2026-10-04T23:59:00+00:00"
+  },
+  "measurement": {
+    "status": "measured",
+    "new_attributed_signups": 3,
+    "unknown_source_signups": 1,
+    "observed_at": "2026-10-06T00:00:00+00:00",
+    "through": "2026-10-06T00:00:00+00:00",
+    "cumulative": true,
+    "source_method": "email_subject_code",
+    "excluded": {
+      "existing": 1,
+      "duplicate": 1,
+      "test": 1,
+      "spam": 1
+    },
+    "evidence_refs": [
+      "EV-MOCK-SYNTHETIC-ONLY"
+    ],
+    "auxiliary": {
+      "impressions": 200,
+      "visits": 30
+    }
+  },
+  "content_review": {
+    "status": "unconnected",
+    "decision": "needs_review",
+    "weakest": null,
+    "market_validation": "not_established"
+  },
+  "published_posts": {
+    "https://example.invalid/mock-post/MOCK-MU-KO-001-A-dc9e3f3b4707855c": {
+      "asset_id": "MOCK-MU-KO-001-A-dc9e3f3b4707855c",
+      "posted_at": "2026-10-03T23:59:00+00:00"
+    },
+    "https://example.invalid/mock-post/MOCK-MU-KO-001-A-28ebf5b8ddb8711f": {
+      "asset_id": "MOCK-MU-KO-001-A-28ebf5b8ddb8711f",
+      "posted_at": "2026-10-01T23:59:00+00:00"
+    },
+    "https://example.invalid/mock-post/MOCK-MU-KO-001-A-7f8e91ad41374451": {
+      "asset_id": "MOCK-MU-KO-001-A-7f8e91ad41374451",
+      "posted_at": "2026-10-04T23:59:00+00:00"
+    }
+  },
+  "feedback": {
+    "status": "collected",
+    "events": [
+      {
+        "event_id": "EV-MOCK-REACTION-1-0",
+        "source_url": "https://example.invalid/mock-post/MOCK-MU-KO-001-A-28ebf5b8ddb8711f#EV-MOCK-REACTION-1-0",
+        "target_url": "https://example.invalid/mock-post/MOCK-MU-KO-001-A-28ebf5b8ddb8711f",
+        "source_kind": "own_post",
+        "created_at": "2026-10-02T00:00:00+00:00",
+        "evidence_summary": "SYNTHETIC: 예약 성공 보장인지 혼동",
+        "classification_reason": "Synthetic explicit objection fixture",
+        "category": "misunderstanding",
+        "audience_fit": "yes",
+        "actor_type": "external",
+        "author_key": "ANON-MOCK-1-0",
+        "asset_id": "MOCK-MU-KO-001-A-28ebf5b8ddb8711f"
+      },
+      {
+        "event_id": "EV-MOCK-REACTION-1-1",
+        "source_url": "https://example.invalid/mock-post/MOCK-MU-KO-001-A-28ebf5b8ddb8711f#EV-MOCK-REACTION-1-1",
+        "target_url": "https://example.invalid/mock-post/MOCK-MU-KO-001-A-28ebf5b8ddb8711f",
+        "source_kind": "own_post",
+        "created_at": "2026-10-02T00:00:00+00:00",
+        "evidence_summary": "SYNTHETIC: 예약 성공 보장인지 혼동",
+        "classification_reason": "Synthetic explicit objection fixture",
+        "category": "misunderstanding",
+        "audience_fit": "yes",
+        "actor_type": "external",
+        "author_key": "ANON-MOCK-1-1",
+        "asset_id": "MOCK-MU-KO-001-A-28ebf5b8ddb8711f"
+      },
+      {
+        "event_id": "EV-MOCK-COMMUNITY",
+        "source_url": "https://example.invalid/mock-community#reply",
+        "target_url": "https://example.invalid/mock-community",
+        "source_kind": "community",
+        "created_at": "2026-10-02T00:00:00+00:00",
+        "evidence_summary": "SYNTHETIC: 직접 예약 앱을 확인하는 편이 좋다",
+        "classification_reason": "Synthetic counterevidence, not campaign response",
+        "category": "no_need",
+        "audience_fit": "yes",
+        "actor_type": "external",
+        "author_key": "ANON-MOCK-C",
+        "asset_id": null
+      },
+      {
+        "event_id": "EV-MOCK-REACTION-3-0",
+        "source_url": "https://example.invalid/mock-post/MOCK-MU-KO-001-A-dc9e3f3b4707855c#EV-MOCK-REACTION-3-0",
+        "target_url": "https://example.invalid/mock-post/MOCK-MU-KO-001-A-dc9e3f3b4707855c",
+        "source_kind": "own_post",
+        "created_at": "2026-10-04T00:00:00+00:00",
+        "evidence_summary": "SYNTHETIC: 메일 신청 방법을 찾기 어려움",
+        "classification_reason": "Synthetic explicit objection fixture",
+        "category": "signup_friction",
+        "audience_fit": "yes",
+        "actor_type": "external",
+        "author_key": "ANON-MOCK-3-0",
+        "asset_id": "MOCK-MU-KO-001-A-dc9e3f3b4707855c"
+      },
+      {
+        "event_id": "EV-MOCK-REACTION-3-1",
+        "source_url": "https://example.invalid/mock-post/MOCK-MU-KO-001-A-dc9e3f3b4707855c#EV-MOCK-REACTION-3-1",
+        "target_url": "https://example.invalid/mock-post/MOCK-MU-KO-001-A-dc9e3f3b4707855c",
+        "source_kind": "own_post",
+        "created_at": "2026-10-04T00:00:00+00:00",
+        "evidence_summary": "SYNTHETIC: 메일 신청 방법을 찾기 어려움",
+        "classification_reason": "Synthetic explicit objection fixture",
+        "category": "signup_friction",
+        "audience_fit": "yes",
+        "actor_type": "external",
+        "author_key": "ANON-MOCK-3-1",
+        "asset_id": "MOCK-MU-KO-001-A-dc9e3f3b4707855c"
+      }
+    ],
+    "new_event_ids": [],
+    "coverage": [
+      {
+        "target_url": "https://example.invalid/mock-post/MOCK-MU-KO-001-A-28ebf5b8ddb8711f",
+        "kind": "own_post",
+        "status": "complete",
+        "checked_at": "2026-10-06T00:00:00+00:00",
+        "reason": "Synthetic full reply fixture"
+      },
+      {
+        "target_url": "https://example.invalid/mock-post/MOCK-MU-KO-001-A-dc9e3f3b4707855c",
+        "kind": "own_post",
+        "status": "complete",
+        "checked_at": "2026-10-06T00:00:00+00:00",
+        "reason": "Synthetic full reply fixture"
+      },
+      {
+        "target_url": "https://example.invalid/mock-post/MOCK-MU-KO-001-A-7f8e91ad41374451",
+        "kind": "own_post",
+        "status": "complete",
+        "checked_at": "2026-10-06T00:00:00+00:00",
+        "reason": "Synthetic full reply fixture"
+      },
+      {
+        "target_url": "https://example.invalid/mock-community",
+        "kind": "community",
+        "status": "complete",
+        "checked_at": "2026-10-06T00:00:00+00:00",
+        "reason": "Synthetic discussion fixture"
+      }
+    ],
+    "missing_post_urls": [],
+    "collection_complete": true,
+    "observed_at": "2026-10-06T00:00:00+00:00"
+  },
+  "metric_diagnostic": {
+    "kind": "observe",
+    "reason": "새 귀속 신청 없음; 기존 누적 신청으로 새 개선을 주장하지 않음",
+    "one_change": "현재 조건 유지하고 추가 관측"
+  },
+  "next_action": {
+    "kind": "observe",
+    "reason": "새 적격 반응 없음; 기존 근거만으로 재수정하지 않음",
+    "one_change": "현재 조건 유지하고 추가 관측",
+    "evidence_ids": [],
+    "signup_delta": 0,
+    "metric_status": "measured",
+    "effect": "not_established",
+    "publication_authorized": false,
+    "reaction_summary": {
+      "own_post": {
+        "signup_friction": 2,
+        "misunderstanding": 2,
+        "trust": 0,
+        "no_need": 0,
+        "need": 0,
+        "interest": 0,
+        "other": 0
+      },
+      "community": {
+        "signup_friction": 0,
+        "misunderstanding": 0,
+        "trust": 0,
+        "no_need": 1,
+        "need": 0,
+        "interest": 0,
+        "other": 0
+      }
+    },
+    "coverage_complete": true
+  },
+  "next_execution": {
+    "suggested_at": "2026-10-07T00:00:00+00:00",
+    "owner": "virtual_scheduler_only",
+    "scheduled": false,
+    "mode": "automatic_pending_connection"
+  },
+  "adapter_status": {
+    "research": "observed",
+    "approval": "approved",
+    "publication": "posted",
+    "measurement": "measured",
+    "feedback": "collected"
+  }
+}

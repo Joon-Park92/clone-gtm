@@ -1,0 +1,95 @@
+{
+  "status": "collected",
+  "campaign_id": "MOCK-MU-KO-001",
+  "observed_at": "2026-10-05T00:00:00+00:00",
+  "coverage": [
+    {
+      "target_url": "https://example.invalid/mock-post/MOCK-MU-KO-001-A-28ebf5b8ddb8711f",
+      "kind": "own_post",
+      "status": "complete",
+      "checked_at": "2026-10-05T00:00:00+00:00",
+      "reason": "Synthetic full reply fixture"
+    },
+    {
+      "target_url": "https://example.invalid/mock-post/MOCK-MU-KO-001-A-dc9e3f3b4707855c",
+      "kind": "own_post",
+      "status": "complete",
+      "checked_at": "2026-10-05T00:00:00+00:00",
+      "reason": "Synthetic full reply fixture"
+    },
+    {
+      "target_url": "https://example.invalid/mock-community",
+      "kind": "community",
+      "status": "complete",
+      "checked_at": "2026-10-05T00:00:00+00:00",
+      "reason": "Synthetic discussion fixture"
+    }
+  ],
+  "events": [
+    {
+      "event_id": "EV-MOCK-REACTION-1-0",
+      "source_url": "https://example.invalid/mock-post/MOCK-MU-KO-001-A-28ebf5b8ddb8711f#EV-MOCK-REACTION-1-0",
+      "target_url": "https://example.invalid/mock-post/MOCK-MU-KO-001-A-28ebf5b8ddb8711f",
+      "source_kind": "own_post",
+      "created_at": "2026-10-02T00:00:00+00:00",
+      "evidence_summary": "SYNTHETIC: 예약 성공 보장인지 혼동",
+      "classification_reason": "Synthetic explicit objection fixture",
+      "category": "misunderstanding",
+      "audience_fit": "yes",
+      "actor_type": "external",
+      "author_key": "ANON-MOCK-1-0"
+    },
+    {
+      "event_id": "EV-MOCK-REACTION-1-1",
+      "source_url": "https://example.invalid/mock-post/MOCK-MU-KO-001-A-28ebf5b8ddb8711f#EV-MOCK-REACTION-1-1",
+      "target_url": "https://example.invalid/mock-post/MOCK-MU-KO-001-A-28ebf5b8ddb8711f",
+      "source_kind": "own_post",
+      "created_at": "2026-10-02T00:00:00+00:00",
+      "evidence_summary": "SYNTHETIC: 예약 성공 보장인지 혼동",
+      "classification_reason": "Synthetic explicit objection fixture",
+      "category": "misunderstanding",
+      "audience_fit": "yes",
+      "actor_type": "external",
+      "author_key": "ANON-MOCK-1-1"
+    },
+    {
+      "event_id": "EV-MOCK-COMMUNITY",
+      "source_url": "https://example.invalid/mock-community#reply",
+      "target_url": "https://example.invalid/mock-community",
+      "source_kind": "community",
+      "created_at": "2026-10-02T00:00:00+00:00",
+      "evidence_summary": "SYNTHETIC: 직접 예약 앱을 확인하는 편이 좋다",
+      "classification_reason": "Synthetic counterevidence, not campaign response",
+      "category": "no_need",
+      "audience_fit": "yes",
+      "actor_type": "external",
+      "author_key": "ANON-MOCK-C"
+    },
+    {
+      "event_id": "EV-MOCK-REACTION-3-0",
+      "source_url": "https://example.invalid/mock-post/MOCK-MU-KO-001-A-dc9e3f3b4707855c#EV-MOCK-REACTION-3-0",
+      "target_url": "https://example.invalid/mock-post/MOCK-MU-KO-001-A-dc9e3f3b4707855c",
+      "source_kind": "own_post",
+      "created_at": "2026-10-04T00:00:00+00:00",
+      "evidence_summary": "SYNTHETIC: 메일 신청 방법을 찾기 어려움",
+      "classification_reason": "Synthetic explicit objection fixture",
+      "category": "signup_friction",
+      "audience_fit": "yes",
+      "actor_type": "external",
+      "author_key": "ANON-MOCK-3-0"
+    },
+    {
+      "event_id": "EV-MOCK-REACTION-3-1",
+      "source_url": "https://example.invalid/mock-post/MOCK-MU-KO-001-A-dc9e3f3b4707855c#EV-MOCK-REACTION-3-1",
+      "target_url": "https://example.invalid/mock-post/MOCK-MU-KO-001-A-dc9e3f3b4707855c",
+      "source_kind": "own_post",
+      "created_at": "2026-10-04T00:00:00+00:00",
+      "evidence_summary": "SYNTHETIC: 메일 신청 방법을 찾기 어려움",
+      "classification_reason": "Synthetic explicit objection fixture",
+      "category": "signup_friction",
+      "audience_fit": "yes",
+      "actor_type": "external",
+      "author_key": "ANON-MOCK-3-1"
+    }
+  ]
+}
