@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "timezone": "Asia/Seoul",
+  "hypothesis": "인기 식당 예약을 위해 모바일 앱에서 가능한 날짜·시간을 확인하는 사람은 그 앱 조작을 카카오톡으로 맡기는 사용 방식에 관심을 갖고 사전 신청할 수 있다.",
+  "draft": {
+    "cta": "Mu 사전 사용 신청 안내",
+    "body": "MOCK ONLY: 인기 식당 예약 확인을 카카오톡으로 부탁한다면?\n\n인기 식당에 가려고 모바일 앱을 열어 날짜와 시간을 확인하는 일, 카카오톡으로 부탁할 수 있다면 어떨까요?\n\nMu를 만드는 팀입니다. 식당 예약 확인부터 배송 조회, 장바구니 담기까지, 모바일 앱을 직접 조작하는 개인 비서를 준비하고 있어요.\n\n현재 사전 사용 신청을 받고 있습니다.\n제품 소개·신청 안내: https://mu.pairful.ai/ko\n\nMu에 가장 먼저 맡기고 싶은 앱 작업은 무엇인가요?"
+  },
+  "learning": {
+    "minimum_impressions": 100,
+    "minimum_visits": 20,
+    "threshold_basis": "운영용 초기 가정. 통계적 유의성 또는 시장 기준 아님."
+  },
+  "simulation": true,
+  "campaign_id": "MOCK-MU-KO-001",
+  "experiment_id": "MOCK-EXP-001",
+  "window": {
+    "start": "2026-10-01T00:00:00+00:00",
+    "end": "2026-10-08T00:00:00+00:00"
+  },
+  "attribution": {
+    "method": "email_subject_code",
+    "verified": true,
+    "campaign_code": "MOCK-MU-KO-001"
+  },
+  "schedule": {
+    "owner": "virtual_scheduler_only",
+    "requested_mode": "manual_start_then_daily"
+  },
+  "change_note": "Applied prior message recommendation: change opening line only",
+  "adapters": {
+    "research": {
+      "driver": "manual_json",
+      "path": "research.json"
+    },
+    "approval": {
+      "driver": "manual_json",
+      "path": "approval.json"
+    },
+    "publication": {
+      "driver": "manual_json",
+      "path": "publication.json"
+    },
+    "measurement": {
+      "driver": "manual_json",
+      "path": "measurement.json"
+    }
+  }
+}

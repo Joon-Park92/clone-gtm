@@ -1,0 +1,13 @@
+{
+  "status": "observed",
+  "signals": [
+    {
+      "url": "https://example.invalid/mock-customer",
+      "published_at": "2026-10-01T00:00:00+00:00",
+      "problem_observed": true,
+      "problem": "SYNTHETIC: 앱에서 날짜를 바꿔 확인하기 번거롭다.",
+      "fit": "yes",
+      "selection_reason": "Synthetic ICP fixture, not a real customer"
+    }
+  ]
+}

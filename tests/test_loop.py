@@ -58,6 +58,11 @@ class LoopTests(unittest.TestCase):
         self.assertEqual(run['approval']['status'], 'unconnected')
         self.assertIsNone(run['publication']['url'])
 
+    def test_simulation_rejects_production_campaign(self):
+        self.cfg['simulation'] = True
+        with self.assertRaisesRegex(ValueError, 'isolated MOCK campaign'):
+            build_run(self.cfg, self.inputs, now=NOW)
+
     def test_zero_differs_from_unmeasured_and_raw_email_is_excluded(self):
         self.measured()
         run = build_run(self.cfg, self.inputs, now=NOW)

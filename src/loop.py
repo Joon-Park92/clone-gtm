@@ -123,6 +123,8 @@ def decide(metrics, cfg):
 def build_run(cfg, inputs, previous=None, now=None):
     now = now or datetime.now(timezone.utc)
     require(cfg['schema_version'] == 1, 'Unsupported config schema')
+    if cfg.get('simulation'):
+        require(cfg['campaign_id'].startswith('MOCK-'), 'Simulation needs isolated MOCK campaign')
     for key in ('campaign_id', 'experiment_id'):
         require(re.fullmatch(r'[A-Za-z0-9_-]+', cfg[key]), 'Invalid ID')
     body = cfg['draft']['body']
@@ -190,7 +192,7 @@ def build_run(cfg, inputs, previous=None, now=None):
         'schema_version': 1, 'run_id': 'RUN-' + now.strftime('%Y%m%dT%H%M%S%fZ') + '-' + uuid.uuid4().hex[:6],
         'campaign_id': cfg['campaign_id'], 'experiment_id': cfg['experiment_id'],
         'started_at': now.isoformat(), 'timezone': cfg['timezone'], 'state': state,
-        'mode': 'local_coordination', 'previous_run': previous['run_id'] if previous else None,
+        'mode': 'mock_simulation' if cfg.get('simulation') else 'local_coordination', 'previous_run': previous['run_id'] if previous else None,
         'hypothesis': cfg['hypothesis'],
         'previous_recommendation': previous['next_action'] if previous else None,
         'change_note': cfg['change_note'],
@@ -207,7 +209,7 @@ def build_run(cfg, inputs, previous=None, now=None):
     }
 
 
-def execute(config_path, output):
+def execute(config_path, output, now=None):
     cfg = read(config_path)
     output.mkdir(parents=True, exist_ok=True)
     lock = output / '.loop.lock'
@@ -225,7 +227,7 @@ def execute(config_path, output):
             previous = max(records, key=lambda r: timestamp(r['started_at']))
         inputs = {name: adapter(cfg['adapters'][name], config_path.parent).fetch({'config': cfg, 'previous': previous})
                   for name in ('research', 'approval', 'publication', 'measurement')}
-        result = build_run(cfg, inputs, previous)
+        result = build_run(cfg, inputs, previous, now=now)
         target = output / (result['run_id'] + '.json')
         # Exclusive creation plus a lock prevents silent history replacement.
         with target.open('x', encoding='utf-8') as stream:

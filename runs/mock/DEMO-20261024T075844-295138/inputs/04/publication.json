@@ -1,0 +1,8 @@
+{
+  "status": "uncertain",
+  "asset_id": "MOCK-MU-KO-001-A-db202dac4ba9581b",
+  "channel": "mock_threads",
+  "account_ref": "mock-account",
+  "url": "https://example.invalid/mock-post/MOCK-MU-KO-001-A-db202dac4ba9581b",
+  "posted_at": "2026-10-04T23:59:00+00:00"
+}

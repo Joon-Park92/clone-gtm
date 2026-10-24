@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "run_id": "RUN-20261002T000000000000Z-8f58db",
+  "campaign_id": "MOCK-MU-KO-001",
+  "experiment_id": "MOCK-EXP-001",
+  "started_at": "2026-10-02T00:00:00+00:00",
+  "timezone": "Asia/Seoul",
+  "state": "measured",
+  "mode": "mock_simulation",
+  "previous_run": "RUN-20261001T000000000000Z-4fdd2f",
+  "hypothesis": "인기 식당 예약을 위해 모바일 앱에서 가능한 날짜·시간을 확인하는 사람은 그 앱 조작을 카카오톡으로 맡기는 사용 방식에 관심을 갖고 사전 신청할 수 있다.",
+  "previous_recommendation": {
+    "kind": "observe",
+    "reason": "미측정: 성과 판단 보류",
+    "one_change": "MeasurementAdapter 연결 및 접수·기준 검증"
+  },
+  "change_note": "Synthetic bootstrap, not production or real approval",
+  "research": {
+    "status": "observed",
+    "signals": [
+      {
+        "url": "https://example.invalid/mock-customer",
+        "published_at": "2026-10-01T00:00:00+00:00",
+        "problem": "SYNTHETIC: 앱에서 날짜를 바꿔 확인하기 번거롭다.",
+        "fit": "yes",
+        "selection_reason": "Synthetic ICP fixture, not a real customer"
+      }
+    ]
+  },
+  "asset": {
+    "asset_id": "MOCK-MU-KO-001-A-28ebf5b8ddb8711f",
+    "body": "MOCK ONLY: “이번 토요일 저녁, 두 명 예약 가능한지 확인해줘.”\n\n인기 식당에 가려고 모바일 앱을 열어 날짜와 시간을 확인하는 일, 카카오톡으로 부탁할 수 있다면 어떨까요?\n\nMu를 만드는 팀입니다. 식당 예약 확인부터 배송 조회, 장바구니 담기까지, 모바일 앱을 직접 조작하는 개인 비서를 준비하고 있어요.\n\n현재 사전 사용 신청을 받고 있습니다.\n제품 소개·신청 안내: https://mu.pairful.ai/ko\n\nMu에 가장 먼저 맡기고 싶은 앱 작업은 무엇인가요?",
+    "content_sha256": "28ebf5b8ddb8711fc1308b6fcac006564a9168141e19d0d8f830cd0f5358e3a0",
+    "cta": "Mu 사전 사용 신청 안내",
+    "attribution": {
+      "method": "email_subject_code",
+      "verified": true,
+      "campaign_code": "MOCK-MU-KO-001"
+    }
+  },
+  "approval": {
+    "status": "approved",
+    "matched": true,
+    "asset_id": "MOCK-MU-KO-001-A-28ebf5b8ddb8711f",
+    "content_sha256": "28ebf5b8ddb8711fc1308b6fcac006564a9168141e19d0d8f830cd0f5358e3a0",
+    "channel": "mock_threads",
+    "account_ref": "mock-account",
+    "scope": "single_post",
+    "approved_at": "2026-10-01T23:58:00+00:00",
+    "human_reviewed": true
+  },
+  "publication": {
+    "status": "posted",
+    "url": "https://example.invalid/mock-post/MOCK-MU-KO-001-A-28ebf5b8ddb8711f",
+    "posted_at": "2026-10-01T23:59:00+00:00"
+  },
+  "measurement": {
+    "status": "measured",
+    "new_attributed_signups": 0,
+    "unknown_source_signups": 0,
+    "observed_at": "2026-10-02T00:00:00+00:00",
+    "through": "2026-10-02T00:00:00+00:00",
+    "cumulative": true,
+    "source_method": "email_subject_code",
+    "excluded": {
+      "existing": 0,
+      "duplicate": 0,
+      "test": 0,
+      "spam": 0
+    },
+    "evidence_refs": [
+      "EV-MOCK-SYNTHETIC-ONLY"
+    ],
+    "auxiliary": {
+      "impressions": 200,
+      "visits": 5
+    }
+  },
+  "next_action": {
+    "kind": "message",
+    "reason": "노출 대비 방문 표본 부족; 원인 미확정",
+    "one_change": "메시지 첫 문장 하나 변경"
+  },
+  "next_execution": {
+    "suggested_at": "2026-10-03T00:00:00+00:00",
+    "owner": "virtual_scheduler_only",
+    "scheduled": false,
+    "mode": "automatic_pending_connection"
+  },
+  "adapter_status": {
+    "research": "observed",
+    "approval": "approved",
+    "publication": "posted",
+    "measurement": "measured"
+  }
+}

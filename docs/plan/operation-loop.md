@@ -25,3 +25,7 @@ config.schedule.requested_mode=manual_start_then_daily, driver=unconnected, conn
 ## 발표 문서 갱신
 
 매 실행과 주요 결정 후 docs/gtm/presentation.md의 기준 시각·현재 상태·관측·학습·다음 행동을 갱신한다. 완료한 조사·테스트와 실제 게시·고객 성과를 분리한다. 새 증거가 없으면 성과 숫자를 만들지 않는다. 자동 런타임 연결 전에는 진행 중인 세션에서 에이전트가 갱신하며 세션 밖 자동 갱신은 아직 없다.
+
+## Mock 검증 완료
+
+`python3 scripts/mock_loop.py`가 한 번의 수동 시작과 7회의 일별 가상 tick을 재현한다. 실제 코어의 파일 Adapter 경계를 통해 승인·게시·집계·다음 문안·이력을 확인한다. 7일 종료 뒤 tick을 만들지 않으며 실제 scheduler_job_id나 외부 등록은 없다. 검증 경로: [Mock 보고서](../../runs/mock/DEMO-20261024T075844-295138/report.md). 실런타임·영속 예약·실API 오류는 이 검증 범위 밖이다.

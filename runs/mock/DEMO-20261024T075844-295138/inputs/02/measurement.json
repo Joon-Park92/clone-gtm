@@ -1,0 +1,30 @@
+{
+  "status": "measured",
+  "campaign_id": "MOCK-MU-KO-001",
+  "window": {
+    "start": "2026-10-01T00:00:00+00:00",
+    "end": "2026-10-08T00:00:00+00:00"
+  },
+  "observed_at": "2026-10-03T00:00:00+00:00",
+  "through": "2026-10-03T00:00:00+00:00",
+  "cumulative": true,
+  "baseline_verified": true,
+  "receipt_verified": true,
+  "dedup_scope": "campaign",
+  "source_method": "email_subject_code",
+  "new_attributed_signups": 2,
+  "unknown_source_signups": 1,
+  "excluded": {
+    "existing": 1,
+    "duplicate": 1,
+    "test": 1,
+    "spam": 1
+  },
+  "evidence_refs": [
+    "EV-MOCK-SYNTHETIC-ONLY"
+  ],
+  "auxiliary": {
+    "impressions": 200,
+    "visits": 30
+  }
+}

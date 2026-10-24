@@ -1,0 +1,85 @@
+{
+  "simulation_only": true,
+  "campaign_id": "MOCK-MU-KO-001",
+  "result": "PASS",
+  "manual_bootstrap_count": 1,
+  "virtual_daily_ticks": 7,
+  "mock_publish_send_calls": 3,
+  "mock_final_signups": 3,
+  "negative_cases_rejected": [
+    "unapproved_receipt",
+    "changed_draft",
+    "wrong_account",
+    "missing_baseline"
+  ],
+  "rows": [
+    {
+      "day": 0,
+      "trigger": "manual_bootstrap_mock",
+      "state": "awaiting_approval",
+      "mock_signups_cumulative": null,
+      "next_action": "observe",
+      "run_id": "RUN-20261001T000000000000Z-4fdd2f"
+    },
+    {
+      "day": 1,
+      "trigger": "automatic_tick_mock",
+      "state": "measured",
+      "mock_signups_cumulative": 0,
+      "next_action": "message",
+      "run_id": "RUN-20261002T000000000000Z-8f58db"
+    },
+    {
+      "day": 2,
+      "trigger": "automatic_tick_mock",
+      "state": "awaiting_approval",
+      "mock_signups_cumulative": 2,
+      "next_action": "follow_up",
+      "run_id": "RUN-20261003T000000000000Z-ad23aa"
+    },
+    {
+      "day": 3,
+      "trigger": "automatic_tick_mock",
+      "state": "measured",
+      "mock_signups_cumulative": 3,
+      "next_action": "follow_up",
+      "run_id": "RUN-20261004T000000000000Z-41961e"
+    },
+    {
+      "day": 4,
+      "trigger": "automatic_tick_mock",
+      "state": "publication_uncertain",
+      "mock_signups_cumulative": 3,
+      "next_action": "follow_up",
+      "run_id": "RUN-20261005T000000000000Z-3e46f7"
+    },
+    {
+      "day": 5,
+      "trigger": "automatic_tick_mock",
+      "state": "measured",
+      "mock_signups_cumulative": 3,
+      "next_action": "follow_up",
+      "run_id": "RUN-20261006T000000000000Z-fb0dc0"
+    },
+    {
+      "day": 6,
+      "trigger": "automatic_tick_mock",
+      "state": "measured",
+      "mock_signups_cumulative": 3,
+      "next_action": "follow_up",
+      "run_id": "RUN-20261007T000000000000Z-717544"
+    },
+    {
+      "day": 7,
+      "trigger": "automatic_tick_mock",
+      "state": "measured",
+      "mock_signups_cumulative": 3,
+      "next_action": "follow_up",
+      "run_id": "RUN-20261008T000000000000Z-6e84ab"
+    }
+  ],
+  "external_calls": 0,
+  "real_credentials_read": false,
+  "real_scheduler_registered": false,
+  "production_config_unchanged": true
+}
