@@ -29,3 +29,5 @@ Threads 계정은 사용자 제공 @mu.agent다. 인증정보는 사용자 요�
 모의 신청 수는 실제 성과가 아니다. Mock 캠페인은 MOCK- 접두사와 mock_simulation 상태를 사용하고 운영 실행 폴더의 기록과 분리한다. 실제 자동 스케줄러 등록도 수행하지 않는다.
 
 자기개선 판단 기준: [Rubric](docs/gtm/rubric.md). `python3 scripts/mock_refinement.py`로 근거 기반 평가 → 단일 수정 → 재평가를 검증한다. `python3 -m unittest discover -s tests -v`는 7일 루프 및 판단 코어를 함께 검증한다. 합성 점수·신청을 실제 전환 성과로 사용하지 않는다.
+
+발표용 설명은 루트 [PRESENTATION.md](PRESENTATION.md)에 있다. 제품·목표·단계별 기준·Rubric·실제 성과에 따른 개선과 검증 범위를 순서대로 설명한다.

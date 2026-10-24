@@ -35,7 +35,8 @@
 - 자기개선: `docs/gtm/rubric.md`, `prompts/review-and-refine.md`, `prompts/run-loop.md`
 - 게시 검토본: `docs/gtm/publish-packet.md`
 - Threads 배포: `docs/gtm/zero-audience-distribution.md`
-- 완결 발표 문서: `docs/gtm/presentation.md`
+- 외부 청중용 루트 발표 문서: `PRESENTATION.md` (단계별 기준·Rubric·개선 구조). 주요 변경 시 함께 갱신.
+- 상세 발표·현황 문서: `docs/gtm/presentation.md`
 - 운영·이력: `docs/plan/operation-loop.md`, `first-loop.md`, `activity-log.md` (최신 E013)
 - 아키텍처: `docs/architecture.md`, `docs/adr/0001-file-based-loop.md`
 - 근거: `docs/ref/product.md`, `hackathon-requirements.md`, `customer-channel-research.md`, `evidence/`
