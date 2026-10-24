@@ -1,3 +1,4 @@
+# Local credentials and private source data must stay outside Git.
 private/
 .env
 .env.*

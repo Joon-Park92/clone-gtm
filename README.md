@@ -19,3 +19,5 @@ Adapter driver는 unconnected 또는 manual_json이다. manual_json.path는 설�
 계획 변경·실행 이력은 [활동 기록](docs/plan/activity-log.md), 개별 결과는 runs/에 보존한다. 실제 게시 전에는 최종본과 계정·채널에 대한 사용자 검토·승인이 필수다.
 
 현재 첫 채널은 Threads다. 운영 목표는 최초 1회 수동 시작 후 매일 자동 반복이며 SchedulerAdapter·에이전트 런타임은 미연결이다. [발표 문서](docs/gtm/presentation.md)는 매 실행·주요 결정 후 갱신한다. 코드 실행만으로 자동 스케줄이 등록되지는 않는다.
+
+Threads 계정은 사용자 제공 @mu.agent다. 인증정보는 사용자 요청에 따라 Git에서 제외되는 private/credentials/threads.json에 저장하며 파일 권한은 0600, 상위 credentials 디렉터리는 0700이다. 설정에는 경로와 공개 계정 참조만 둔다. 인증정보를 출력·커밋하지 않으며 실제 로그인·게시 Adapter는 아직 미연결이다.

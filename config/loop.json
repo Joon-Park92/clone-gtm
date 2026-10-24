@@ -56,12 +56,16 @@
   },
   "distribution": {
     "channel": "threads",
-    "account_ref": null,
+    "account_ref": "threads:@mu.agent",
     "publication_requires_explicit_review": true,
     "account_created": true,
     "account_status": "created_user_reported",
-    "public_profile_url": null,
+    "public_profile_url": "https://www.threads.com/@mu.agent",
     "authentication_verified": false,
-    "posting_connection": "unconnected"
+    "posting_connection": "unconnected",
+    "public_handle": "mu.agent",
+    "profile_source": "user_provided_handle_url_constructed",
+    "profile_verified": false,
+    "credentials_file": "../private/credentials/threads.json"
   }
 }
