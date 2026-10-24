@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "campaign_id": "MU-KO-001",
+  "experiment_id": "EXP-MU-KO-001",
+  "timezone": "Asia/Seoul",
+  "window": {
+    "start": null,
+    "end": null
+  },
+  "hypothesis": "인기 식당 예약을 위해 모바일 앱에서 가능한 날짜·시간을 확인하는 사람은 그 앱 조작을 카카오톡으로 맡기는 사용 방식에 관심을 갖고 사전 신청할 수 있다.",
+  "change_note": "2026-10-24 사용자 합의: 인기 식당 예약 확인으로 관심을 만들고 범용 모바일 앱 자동화 가치를 소개한 뒤 Mu 사전 신청으로 전환. 실제 게시 전 설계 확정.",
+  "attribution": {
+    "method": "email_subject_code",
+    "campaign_code": "MU-KO-001",
+    "verified": false,
+    "granularity": "campaign"
+  },
+  "draft": {
+    "cta": "Mu 사전 사용 신청 안내",
+    "body": "“이번 토요일 저녁, 두 명 예약 가능한지 확인해줘.”\n\n모바일 앱에서 해야 하는 일, 이제 카카오톡으로 부탁하세요.\nMu는 앱을 직접 열고 조작하는 개인 비서입니다. 식당 예약 확인부터 배송 조회, 장바구니 담기까지.\n\n현재 사전 사용 신청을 받고 있어요.\nMu 사전 사용 신청 안내: https://mu.pairful.ai/ko"
+  },
+  "adapters": {
+    "research": {
+      "driver": "unconnected",
+      "intended_provider": "public_sources_via_agent"
+    },
+    "approval": {
+      "driver": "unconnected",
+      "intended_provider": "human"
+    },
+    "publication": {
+      "driver": "unconnected",
+      "intended_provider": "manual_or_mcp"
+    },
+    "measurement": {
+      "driver": "unconnected",
+      "intended_provider": "mailbox_mcp_assumed"
+    }
+  },
+  "learning": {
+    "minimum_impressions": 100,
+    "minimum_visits": 20,
+    "threshold_basis": "운영용 초기 가정. 통계적 유의성 또는 시장 기준 아님."
+  },
+  "schedule": {
+    "driver": "manual",
+    "owner": "사용자 + 에이전트 (담당 확정 전)",
+    "connected": false
+  }
+}

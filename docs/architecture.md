@@ -1,0 +1,43 @@
+# 아키텍처
+
+제품 정보·이전 실행 → 고객 문제 조사 → 콘텐츠 작성 → 사람 검토·승인 → 실제 게시 → 신청 성과 확인 → 다음 조건 수정 → 재실행.
+
+2026-10-24 검토 결론: 세 모듈을 파일과 안정적인 ID로 연결한다. 에이전트 하나와 사람이 하루 한 번 운영한다. DB, 대시보드, Plugin, 멀티 에이전트는 도입하지 않는다. 실제 MCP·배포 서비스 구현은 연기하고 Adapter 입출력 계약과 상태 전이를 먼저 완성한다.
+
+## 모듈
+
+| 모듈 | 입력 | 출력 |
+| --- | --- | --- |
+| 실험 실행 | 제품 설명, 설정, 이전 실행, ResearchAdapter | 원문 근거, 가설, 콘텐츠 초안 |
+| 배포 기록 | 초안, 사람 승인, PublishAdapter | asset_id, 승인 범위, 실제 URL·시각 또는 대기 상태 |
+| 성과·학습 | MeasurementAdapter, 기존 신청자 기준, 기간 | 캠페인 누적 중복 제거 집계, 근거, 다음 변경 |
+
+## 경계
+
+- ResearchAdapter: 원문 URL·게시 시각·불편·제품 적합성·선정 이유를 반환한다. 없으면 unconnected이다. 초안 작성 자체는 가능하나 고객 검증이라고 부르지 않는다.
+- DraftAdapter: 콘텐츠와 CTA를 반환한다. 정적 초안을 기본 제공하고 추후 모델/MCP 연결을 허용한다.
+- ApprovalAdapter: 사람이 검토한 정확한 본문, asset_id, 채널, 계정, 범위의 승인 기록을 반환한다. 기본 pending.
+- PublishAdapter: posted, pending, failed, uncertain 중 상태와 영수증을 반환한다. 기본 미연결. 불확실하면 자동 재게시 금지.
+- MeasurementAdapter: 기간·기존 신청자 기준·귀속·접수 증거를 확인한 캠페인 누적 스냅샷을 반환한다. 실메일 조회와 중복 제거는 Adapter 책임이며 코어는 계약을 검사한다.
+- SchedulerAdapter: 수동 운영을 기본으로 한다. 다음 실행 시각 제안과 실제 예약을 구분한다.
+
+## ID와 상태
+
+campaign_id는 7일 실험 전체에 고정한다. experiment_id는 한 가설의 버전, run_id는 한 실행, asset_id는 한 콘텐츠를 식별한다. 같은 콘텐츠의 재시도에 새 asset_id를 붙여 중복 게시하지 않는다.
+
+실행은 research_pending/draft_ready → awaiting_approval → awaiting_publication/ publication_uncertain → awaiting_measurement → measured로 진행한다. 게시 승인과 성과 수집은 독립 조건이며, 과거 게시 성과는 오늘 게시 여부와 관계없이 수집할 수 있다.
+
+실행 기록은 덮어쓰지 않는다. 코어는 잠금을 통해 동시 실행을 막는다. 외부 게시를 호출하지 않는 첫 버전은 사람이 받은 게시 영수증을 입력으로 기록한다. 향후 게시 Adapter는 asset_id를 idempotency key로 사용하고 uncertain 상태를 먼저 조회한다.
+
+## 검토한 위험과 결정
+
+- UTM만으로 완료 측정 불가: 실제 접수·기존 신청자 기준·기간이 확인된 스냅샷만 인정한다.
+- 신청자 개인정보 노출: 코어 출력은 허용된 집계 필드만 저장한다. 원문 메일/개인 식별자는 private/ 및 MCP 경계 안에 둔다.
+- 누적 집계 중복: 최신 캠페인 스냅샷을 사용하고 일별 누적값을 합하지 않는다.
+- 접근 가정과 연결 검증 혼동: configured/assumed와 connected/verified를 구분한다.
+- 승인 없이 외부 실행: 첫 구현은 외부 실행 자체를 포함하지 않는다. 실환경 Adapter 구현 때 동일 승인 계약을 적용한다.
+- 작은 표본의 과잉 해석: 관측과 해석을 분리하고 다음 실험에서 주요 조건 하나만 바꾼다.
+
+## 설계와 구현 경계
+
+[첫 루프 실행 계약](plan/first-loop.md)이 단계별 완료 조건의 기준이다. 현재 src/loop.py는 unconnected/manual_json 입력을 기록하는 로컬 코어 초안이다. DraftAdapter와 SchedulerAdapter는 각각 설정 문안과 수동 일정 제안으로만 표현되며 별도 호출 구현이 없다. 실메일 접수·중복 제거, 외부 게시, 모델을 통한 초안 개선은 미구현이다. research_pending/draft_ready는 개념상 단계이고 코어에서는 research.status 및 asset으로 표현한다. 게시 전 지원 범위·신청 경로 등의 종합 검토는 현재 에이전트/사람이 수행하며 코어가 모두 강제하지는 않는다.
