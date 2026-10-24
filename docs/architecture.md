@@ -43,3 +43,9 @@ campaign_id는 7일 실험 전체에 고정한다. experiment_id는 한 가설�
 [첫 루프 실행 계약](plan/first-loop.md)이 단계별 완료 조건의 기준이다. 현재 src/loop.py는 unconnected/manual_json 입력을 기록하는 로컬 코어 초안이다. DraftAdapter와 SchedulerAdapter는 각각 설정 문안과 수동 일정 제안으로만 표현되며 별도 호출 구현이 없다. 실메일 접수·중복 제거, 외부 게시, 모델을 통한 초안 개선은 미구현이다. research_pending/draft_ready는 개념상 단계이고 코어에서는 research.status 및 asset으로 표현한다. 게시 전 지원 범위·신청 경로 등의 종합 검토는 현재 에이전트/사람이 수행하며 코어가 모두 강제하지는 않는다.
 
 현재 운영 기준은 [반복 운영](plan/operation-loop.md)이다. 이전 수동 운영 제안은 사용자 요청으로 변경됐다. 구체 런타임·스케줄러 연결은 여전히 유보 상태이며 게시 전 최종 검토는 계속 필요하다.
+
+## 근거 기반 개선 단계
+
+[Rubric](gtm/rubric.md)을 기준으로 초안 평가 → 약점 하나 → 수정 → 같은 기준 재평가를 게시 검토 앞에 둔다. EvaluationAdapter는 버전·본문 해시·근거·항목별 판단을 반환한다. src/refinement.py가 계약과 후보 선택을 검사하고 src/loop.py는 content_review를 실행 기록에 남긴다. 비교 artifact에는 평가 원문과 수정 가설을 보존한다. 모델 호출은 추상화 상태이고 Mock으로 판단 코어를 검증했다.
+
+성과 진단은 누적 신청의 증가 여부를 확인한다. 같은 양수 누적값을 매일 새로운 성공으로 취급하지 않고, 감소 시 집계 감사로 보낸다. 실제 결과와 편집 평가를 별도 기록하며 세부 계약은 Rubric 문서와 prompts/review-and-refine.md에 있다.

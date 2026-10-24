@@ -37,6 +37,10 @@
     "measurement": {
       "driver": "unconnected",
       "intended_provider": "mailbox_mcp_assumed"
+    },
+    "evaluation": {
+      "driver": "unconnected",
+      "intended_provider": "evidence_bound_agent_review"
     }
   },
   "learning": {

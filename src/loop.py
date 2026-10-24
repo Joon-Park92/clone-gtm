@@ -8,6 +8,7 @@ import uuid
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Protocol
+from refinement import assess
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -98,11 +99,22 @@ def measurement(raw, cfg, now):
             'excluded': exclusions, 'evidence_refs': raw['evidence_refs'], 'auxiliary': auxiliary}
 
 
-def decide(metrics, cfg):
+def decide(metrics, cfg, previous_metrics=None):
     if metrics['status'] != 'measured':
         return {'kind': 'observe', 'reason': '미측정: 성과 판단 보류',
                 'one_change': 'MeasurementAdapter 연결 및 접수·기준 검증'}
     n = metrics['new_attributed_signups']
+    if previous_metrics and previous_metrics.get('status') == 'measured':
+        prior = previous_metrics['new_attributed_signups']
+        if n < prior:
+            return {'kind': 'audit', 'reason': '누적 집계 정정 관측; 성과 개선 판단 보류',
+                    'one_change': '제외·귀속 정정 근거 확인'}
+        if n == prior and n > 0:
+            return {'kind': 'observe', 'reason': '새 귀속 신청 없음; 기존 누적 신청으로 새 개선을 주장하지 않음',
+                    'one_change': '현재 조건 유지하고 추가 관측'}
+        if n == prior and metrics.get('auxiliary') == previous_metrics.get('auxiliary'):
+            return {'kind': 'observe', 'reason': '새 관측 근거 없음; 같은 수치로 반복 수정하지 않음',
+                    'one_change': '현재 조건 유지하고 추가 관측'}
     if n > 0:
         return {'kind': 'follow_up', 'reason': '귀속 신청 관측; 인과 효과는 미확인',
                 'one_change': '같은 고객 문제에서 콘텐츠의 요청 예시 하나 변경'}
@@ -201,7 +213,8 @@ def build_run(cfg, inputs, previous=None, now=None):
                   'cta': cfg['draft']['cta'], 'attribution': cfg['attribution']},
         'approval': approval_record,
         'publication': receipt, 'measurement': metrics,
-        'next_action': decide(metrics, cfg),
+        'content_review': assess(inputs.get('evaluation', {'status': 'unconnected'}), body),
+        'next_action': decide(metrics, cfg, previous['measurement'] if previous else None),
         'next_execution': {'suggested_at': (now + timedelta(days=1)).isoformat(),
                            'owner': cfg['schedule']['owner'], 'scheduled': False,
                            'mode': ('automatic_pending_connection' if cfg['schedule'].get('requested_mode') == 'manual_start_then_daily' else 'manual')},
@@ -227,6 +240,8 @@ def execute(config_path, output, now=None):
             previous = max(records, key=lambda r: timestamp(r['started_at']))
         inputs = {name: adapter(cfg['adapters'][name], config_path.parent).fetch({'config': cfg, 'previous': previous})
                   for name in ('research', 'approval', 'publication', 'measurement')}
+        if 'evaluation' in cfg['adapters']:
+            inputs['evaluation'] = adapter(cfg['adapters']['evaluation'], config_path.parent).fetch({'config': cfg, 'previous': previous})
         result = build_run(cfg, inputs, previous, now=now)
         target = output / (result['run_id'] + '.json')
         # Exclusive creation plus a lock prevents silent history replacement.

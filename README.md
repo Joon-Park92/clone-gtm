@@ -27,3 +27,5 @@ Threads 계정은 사용자 제공 @mu.agent다. 인증정보는 사용자 요�
 `python3 scripts/mock_loop.py` 한 번으로 최초 시작과 가상 7일의 반복을 재현한다. 조사·승인·게시·신청 Adapter는 모두 Mock이며 운영 설정과 실제 인증정보를 사용하지 않는다. 결과는 runs/mock/DEMO-*/report.md와 summary.json, 단계별 inputs/·records/에 저장한다.
 
 모의 신청 수는 실제 성과가 아니다. Mock 캠페인은 MOCK- 접두사와 mock_simulation 상태를 사용하고 운영 실행 폴더의 기록과 분리한다. 실제 자동 스케줄러 등록도 수행하지 않는다.
+
+자기개선 판단 기준: [Rubric](docs/gtm/rubric.md). `python3 scripts/mock_refinement.py`로 근거 기반 평가 → 단일 수정 → 재평가를 검증한다. `python3 -m unittest discover -s tests -v`는 7일 루프 및 판단 코어를 함께 검증한다. 합성 점수·신청을 실제 전환 성과로 사용하지 않는다.

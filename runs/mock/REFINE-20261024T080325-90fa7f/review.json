@@ -1,0 +1,192 @@
+{
+  "simulation_only": true,
+  "baseline": "토요일 두 명 예약 가능 시간, 앱에서 확인하기 번거로운가요?\nMu는 카카오톡으로 모바일 앱 작업을 부탁하는 비서입니다.\n현재 사전 사용 신청 단계입니다.\n제품을 보고, 댓글도 남기고, 신청도 해주세요.",
+  "candidate": "토요일 두 명 예약 가능 시간, 앱에서 확인하기 번거로운가요?\nMu는 카카오톡으로 모바일 앱 작업을 부탁하는 비서입니다.\n현재 사전 사용 신청 단계입니다.\nMu 사전 사용 신청 안내: https://example.invalid/mock-signup",
+  "baseline_review": {
+    "status": "reviewed",
+    "rubric_version": "mu-content-v1",
+    "content_sha256": "7ccc79fe6772c5d61c015b1c7530f4f08074797a19f34e0cef7278c04756c105",
+    "evidence": {
+      "DRAFT": {
+        "kind": "draft_excerpt",
+        "excerpt": "토요일 두 명 예약 가능 시간, 앱에서 확인하기 번거로운가요?\nMu는 카카오톡으로 모바일 앱 작업을 부탁하는 비서입니다.\n현재 사전 사용 신청 단계입니다.\n제품을 보고, 댓글도 남기고, 신청도 해주세요.",
+        "source_ref": "mock:draft",
+        "observation": "Synthetic editorial fixture, not user feedback"
+      },
+      "PRODUCT": {
+        "kind": "mock_product",
+        "source_ref": "mock:product-spec",
+        "observation": "Synthetic spec describes early access and app delegation"
+      }
+    },
+    "criteria": {
+      "customer_situation": {
+        "score": 2,
+        "reason": "날짜·인원·앱 조회 행동이 드러남",
+        "evidence_refs": [
+          "DRAFT"
+        ]
+      },
+      "delegation_value": {
+        "score": 2,
+        "reason": "카카오톡으로 앱 작업을 부탁하는 방식 명시",
+        "evidence_refs": [
+          "DRAFT"
+        ]
+      },
+      "product_honesty": {
+        "score": 2,
+        "reason": "사전 사용 신청 단계 명시",
+        "evidence_refs": [
+          "DRAFT"
+        ]
+      },
+      "cta_clarity": {
+        "score": 1,
+        "reason": "여러 행동 요청이 경쟁함",
+        "evidence_refs": [
+          "DRAFT"
+        ]
+      }
+    },
+    "gates": {
+      "claims_supported": {
+        "status": "pass",
+        "reason": "Synthetic fixture only",
+        "evidence_refs": [
+          "DRAFT",
+          "PRODUCT"
+        ]
+      },
+      "early_access_clear": {
+        "status": "pass",
+        "reason": "Synthetic fixture only",
+        "evidence_refs": [
+          "DRAFT",
+          "PRODUCT"
+        ]
+      }
+    }
+  },
+  "candidate_review": {
+    "status": "reviewed",
+    "rubric_version": "mu-content-v1",
+    "content_sha256": "564435ab6c724e91c88ea765b93bf70a7126debc568bb1b40ce99f05f2549935",
+    "evidence": {
+      "DRAFT": {
+        "kind": "draft_excerpt",
+        "excerpt": "토요일 두 명 예약 가능 시간, 앱에서 확인하기 번거로운가요?\nMu는 카카오톡으로 모바일 앱 작업을 부탁하는 비서입니다.\n현재 사전 사용 신청 단계입니다.\nMu 사전 사용 신청 안내: https://example.invalid/mock-signup",
+        "source_ref": "mock:draft",
+        "observation": "Synthetic editorial fixture, not user feedback"
+      },
+      "PRODUCT": {
+        "kind": "mock_product",
+        "source_ref": "mock:product-spec",
+        "observation": "Synthetic spec describes early access and app delegation"
+      }
+    },
+    "criteria": {
+      "customer_situation": {
+        "score": 2,
+        "reason": "날짜·인원·앱 조회 행동이 드러남",
+        "evidence_refs": [
+          "DRAFT"
+        ]
+      },
+      "delegation_value": {
+        "score": 2,
+        "reason": "카카오톡으로 앱 작업을 부탁하는 방식 명시",
+        "evidence_refs": [
+          "DRAFT"
+        ]
+      },
+      "product_honesty": {
+        "score": 2,
+        "reason": "사전 사용 신청 단계 명시",
+        "evidence_refs": [
+          "DRAFT"
+        ]
+      },
+      "cta_clarity": {
+        "score": 2,
+        "reason": "신청 행동 하나로 정리됨",
+        "evidence_refs": [
+          "DRAFT"
+        ]
+      }
+    },
+    "gates": {
+      "claims_supported": {
+        "status": "pass",
+        "reason": "Synthetic fixture only",
+        "evidence_refs": [
+          "DRAFT",
+          "PRODUCT"
+        ]
+      },
+      "early_access_clear": {
+        "status": "pass",
+        "reason": "Synthetic fixture only",
+        "evidence_refs": [
+          "DRAFT",
+          "PRODUCT"
+        ]
+      }
+    }
+  },
+  "result": {
+    "decision": "candidate_for_human_review",
+    "reason": "Target improved with no criterion regression",
+    "before": {
+      "status": "reviewed",
+      "rubric_version": "mu-content-v1",
+      "decision": "revise",
+      "weakest": "cta_clarity",
+      "scores": {
+        "customer_situation": 2,
+        "delegation_value": 2,
+        "product_honesty": 2,
+        "cta_clarity": 1
+      },
+      "failed_gates": [],
+      "unknown_gates": [],
+      "market_validation": "not_established"
+    },
+    "after": {
+      "status": "reviewed",
+      "rubric_version": "mu-content-v1",
+      "decision": "ready_for_human_review",
+      "weakest": null,
+      "scores": {
+        "customer_situation": 2,
+        "delegation_value": 2,
+        "product_honesty": 2,
+        "cta_clarity": 2
+      },
+      "failed_gates": [],
+      "unknown_gates": [],
+      "market_validation": "not_established"
+    },
+    "target_criterion": "cta_clarity",
+    "proposal": {
+      "parent_sha256": "7ccc79fe6772c5d61c015b1c7530f4f08074797a19f34e0cef7278c04756c105",
+      "candidate_sha256": "564435ab6c724e91c88ea765b93bf70a7126debc568bb1b40ce99f05f2549935",
+      "target_criterion": "cta_clarity",
+      "changed_variables": [
+        "cta_sentence"
+      ],
+      "attempt": 1,
+      "hypothesis": "여러 행동 요청이 신청 행동의 명확성을 낮춘다",
+      "prediction": "CTA 하나로 정리하면 신청으로 이어지는 경로를 더 쉽게 이해할 수 있다",
+      "observe_next": "실제 기간·노출·귀속 범위가 비교 가능한 방문과 신규 신청 및 혼동 응답",
+      "stop_rule": "새 근거가 없으면 유지; 실제 오해·마찰이 확인되면 수정; 인과적 승자 선언 안 함",
+      "fixed_context": {
+        "channel": "mock_threads",
+        "audience": "restaurant-checking",
+        "offer": "early_access"
+      }
+    },
+    "market_validation": "pending_real_observation",
+    "publication_authorized": false
+  }
+}
