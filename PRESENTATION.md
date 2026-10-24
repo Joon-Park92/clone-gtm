@@ -155,6 +155,6 @@ Rubric은 아래 질문을 사용자 근거로 판단하는 기준이다. 각 �
 ---
 
 - [사용자 반응 Rubric](docs/gtm/rubric.md) · [댓글·커뮤니티 수집 계약](docs/gtm/reaction-collection.md)
-- [전체 계획](PLAN.md) · [세션 인계](HANDOVER.md)
+- [전체 계획](PLAN.md)
 - [반응 기반 7일 Mock 증거](runs/mock/DEMO-20261024T081424-142339/report.md)
 - [보조 콘텐츠 검토](docs/gtm/content-checklist.md)
