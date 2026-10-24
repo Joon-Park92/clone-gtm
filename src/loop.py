@@ -201,7 +201,8 @@ def build_run(cfg, inputs, previous=None, now=None):
         'publication': receipt, 'measurement': metrics,
         'next_action': decide(metrics, cfg),
         'next_execution': {'suggested_at': (now + timedelta(days=1)).isoformat(),
-                           'owner': cfg['schedule']['owner'], 'scheduled': False, 'mode': 'manual'},
+                           'owner': cfg['schedule']['owner'], 'scheduled': False,
+                           'mode': ('automatic_pending_connection' if cfg['schedule'].get('requested_mode') == 'manual_start_then_daily' else 'manual')},
         'adapter_status': {name: value['status'] for name, value in inputs.items()},
     }
 

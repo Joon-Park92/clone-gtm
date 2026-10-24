@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "run_id": "RUN-20261024T075232220733Z-587ee4",
+  "campaign_id": "MU-KO-001",
+  "experiment_id": "EXP-MU-KO-001",
+  "started_at": "2026-10-24T07:52:32.220733+00:00",
+  "timezone": "Asia/Seoul",
+  "state": "awaiting_approval",
+  "mode": "local_coordination",
+  "previous_run": "RUN-20261024T073706888099Z-60d8a7",
+  "hypothesis": "인기 식당 예약을 위해 모바일 앱에서 가능한 날짜·시간을 확인하는 사람은 그 앱 조작을 카카오톡으로 맡기는 사용 방식에 관심을 갖고 사전 신청할 수 있다.",
+  "previous_recommendation": {
+    "kind": "observe",
+    "reason": "미측정: 성과 판단 보류",
+    "one_change": "MeasurementAdapter 연결 및 접수·기준 검증"
+  },
+  "change_note": "사용자 결정: 첫 채널 Threads, 최초 1회 수동 시작 후 매일 반복 루프, 발표 문서 지속 갱신. 신청 제목 코드는 설명 요청 상태이며 미적용. 게시 승인 없음.",
+  "research": {
+    "status": "pending",
+    "signals": []
+  },
+  "asset": {
+    "asset_id": "MU-KO-001-A-d1e4e4572d84a75a",
+    "body": "“이번 토요일 저녁, 두 명 예약 가능한지 확인해줘.”\n\n인기 식당에 가려고 모바일 앱을 열어 날짜와 시간을 확인하는 일, 카카오톡으로 부탁할 수 있다면 어떨까요?\n\nMu를 만드는 팀입니다. 식당 예약 확인부터 배송 조회, 장바구니 담기까지, 모바일 앱을 직접 조작하는 개인 비서를 준비하고 있어요.\n\n현재 사전 사용 신청을 받고 있습니다.\n제품 소개·신청 안내: https://mu.pairful.ai/ko\n\nMu에 가장 먼저 맡기고 싶은 앱 작업은 무엇인가요?",
+    "content_sha256": "d1e4e4572d84a75a1bfc2d1989b7e1000eec979afcc32938330c8bce64ca8545",
+    "cta": "Mu 사전 사용 신청 안내",
+    "attribution": {
+      "method": "email_subject_code",
+      "campaign_code": "MU-KO-001",
+      "verified": false,
+      "granularity": "campaign",
+      "decision_status": "proposed_explanation_requested"
+    }
+  },
+  "approval": {
+    "status": "unconnected",
+    "matched": false
+  },
+  "publication": {
+    "status": "unconnected",
+    "url": null,
+    "posted_at": null
+  },
+  "measurement": {
+    "status": "unconnected",
+    "new_attributed_signups": null,
+    "unknown_source_signups": null,
+    "auxiliary": null
+  },
+  "next_action": {
+    "kind": "observe",
+    "reason": "미측정: 성과 판단 보류",
+    "one_change": "MeasurementAdapter 연결 및 접수·기준 검증"
+  },
+  "next_execution": {
+    "suggested_at": "2026-10-25T07:52:32.220733+00:00",
+    "owner": "에이전트 런타임 + SchedulerAdapter (미연결)",
+    "scheduled": false,
+    "mode": "automatic_pending_connection"
+  },
+  "adapter_status": {
+    "research": "pending",
+    "approval": "unconnected",
+    "publication": "unconnected",
+    "measurement": "unconnected"
+  }
+}

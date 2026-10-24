@@ -50,6 +50,14 @@ class LoopTests(unittest.TestCase):
         self.assertEqual(run['state'], 'awaiting_approval')
         self.assertFalse(run['next_execution']['scheduled'])
 
+    def test_automatic_request_does_not_claim_registered_schedule(self):
+        self.cfg['schedule']['requested_mode'] = 'manual_start_then_daily'
+        run = build_run(self.cfg, self.inputs, now=NOW)
+        self.assertEqual(run['next_execution']['mode'], 'automatic_pending_connection')
+        self.assertFalse(run['next_execution']['scheduled'])
+        self.assertEqual(run['approval']['status'], 'unconnected')
+        self.assertIsNone(run['publication']['url'])
+
     def test_zero_differs_from_unmeasured_and_raw_email_is_excluded(self):
         self.measured()
         run = build_run(self.cfg, self.inputs, now=NOW)
