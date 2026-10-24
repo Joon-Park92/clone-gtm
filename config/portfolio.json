@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "campaign_id": "MU-KO-001",
+  "mode": "planning_only",
+  "objective": "campaign_unique_new_verified_signups",
+  "window": {
+    "start": null,
+    "end": null
+  },
+  "attribution": {
+    "level": "campaign",
+    "verified": false,
+    "credit_rule": "first_verified_deployment_code_per_new_person",
+    "unknown_credit": "campaign_only_no_arm_reward"
+  },
+  "policy": {
+    "name": "parallel_high_low_new",
+    "version": 1,
+    "outcome_hours": 24,
+    "max_parallel": 3,
+    "max_posts_per_account_day": 1,
+    "min_mature_per_context": 2,
+    "max_active_arms": 5,
+    "new_arms_per_promotion": 2,
+    "reward_unit": "unique_verified_signups_per_mature_deployment",
+    "assumptions": "높음·낮음·새 가설에 같은 게시 기회, 계정별 고정 관측 구간. 통계적 승자 아님."
+  },
+  "accounts": [
+    {
+      "account_id": "threads-mu-agent",
+      "public_handle": "mu.agent",
+      "ownership_confirmed": true,
+      "publishing_verified": false,
+      "context_block": "daily",
+      "active": true
+    }
+  ],
+  "rubrics": {
+    "hypothesis_generator": "rubrics/hypothesis_generator.v1.json",
+    "hypothesis_reviewer": "rubrics/hypothesis_reviewer.v1.json",
+    "content_writer": "rubrics/content_writer.v1.json",
+    "learning_reviewer": "rubrics/learning_reviewer.v1.json"
+  },
+  "agents": {
+    "hypothesis_generator": {
+      "driver": "unconnected",
+      "rubric_role": "hypothesis_generator"
+    },
+    "hypothesis_reviewer": {
+      "driver": "unconnected",
+      "rubric_role": "hypothesis_reviewer"
+    },
+    "content_writer": {
+      "driver": "unconnected",
+      "rubric_role": "content_writer"
+    },
+    "learning_reviewer": {
+      "driver": "unconnected",
+      "rubric_role": "learning_reviewer"
+    }
+  },
+  "allocation_adapter": {
+    "driver": "local_policy"
+  },
+  "seed_domains": [
+    "restaurant_availability",
+    "delivery_tracking",
+    "shopping_cart"
+  ],
+  "expansion_domains": [
+    "email_summary",
+    "commute_check"
+  ],
+  "external_publish_requires_human_approval": true
+}

@@ -1,0 +1,14 @@
+{
+  "simulation_only": true,
+  "result": "PASS",
+  "accounts": 3,
+  "initial_arms": 3,
+  "final_arms": 5,
+  "incumbent": "ARM-DELIVERY",
+  "mature_deployments": 21,
+  "synthetic_signups": 21,
+  "generation_events": 1,
+  "external_calls": 0,
+  "real_credentials_read": false,
+  "parallel_plan_only": true
+}

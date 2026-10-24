@@ -1,0 +1,934 @@
+{
+  "simulation_only": true,
+  "round": {
+    "day": 1,
+    "batch": {
+      "status": "planned",
+      "jobs": [
+        {
+          "campaign_id": "MOCK-PORTFOLIO",
+          "arm_id": "ARM-CART",
+          "asset_id": "ASSET-d3c27f1776af49b8",
+          "body": "MOCK ONLY: shopping_cart 확인을 반복하는 수고를 메신저로 부탁한다면? 현재 사전 신청 단계. https://example.invalid/mock-signup",
+          "account_id": "mock-account-1",
+          "context": "mock-account-1|daily",
+          "planned_at": "2026-10-02T00:00:00+00:00",
+          "policy_version": 1,
+          "allocation_reason": "balanced_initial_test",
+          "deployment_id": "DEP-e41525fe5b153e8a",
+          "requires_human_approval": true
+        },
+        {
+          "campaign_id": "MOCK-PORTFOLIO",
+          "arm_id": "ARM-DELIVERY",
+          "asset_id": "ASSET-5a397973eb67bfed",
+          "body": "MOCK ONLY: delivery_tracking 확인을 반복하는 수고를 메신저로 부탁한다면? 현재 사전 신청 단계. https://example.invalid/mock-signup",
+          "account_id": "mock-account-2",
+          "context": "mock-account-2|daily",
+          "planned_at": "2026-10-02T00:00:00+00:00",
+          "policy_version": 1,
+          "allocation_reason": "balanced_initial_test",
+          "deployment_id": "DEP-fb53a72b4ce5c886",
+          "requires_human_approval": true
+        },
+        {
+          "campaign_id": "MOCK-PORTFOLIO",
+          "arm_id": "ARM-FOOD",
+          "asset_id": "ASSET-0c75ef89e390ac65",
+          "body": "MOCK ONLY: restaurant_availability 확인을 반복하는 수고를 메신저로 부탁한다면? 현재 사전 신청 단계. https://example.invalid/mock-signup",
+          "account_id": "mock-account-0",
+          "context": "mock-account-0|daily",
+          "planned_at": "2026-10-02T00:00:00+00:00",
+          "policy_version": 1,
+          "allocation_reason": "balanced_initial_test",
+          "deployment_id": "DEP-8a4bf9ee3a290fa0",
+          "requires_human_approval": true
+        }
+      ],
+      "comparison": {
+        "status": "insufficient_evidence",
+        "high_arm": null,
+        "low_arm": null,
+        "causal_claim": false,
+        "unmeasured_is_low": false,
+        "pending_arms": [
+          "ARM-CART",
+          "ARM-DELIVERY",
+          "ARM-FOOD"
+        ],
+        "statistics": {
+          "ARM-CART": {
+            "mock-account-0|daily": {
+              "n": 1,
+              "reward": 0,
+              "signups_per_post": 0.0
+            },
+            "mock-account-1|daily": {
+              "n": 0,
+              "reward": 0,
+              "signups_per_post": null
+            },
+            "mock-account-2|daily": {
+              "n": 0,
+              "reward": 0,
+              "signups_per_post": null
+            }
+          },
+          "ARM-DELIVERY": {
+            "mock-account-0|daily": {
+              "n": 0,
+              "reward": 0,
+              "signups_per_post": null
+            },
+            "mock-account-1|daily": {
+              "n": 1,
+              "reward": 3,
+              "signups_per_post": 3.0
+            },
+            "mock-account-2|daily": {
+              "n": 0,
+              "reward": 0,
+              "signups_per_post": null
+            }
+          },
+          "ARM-FOOD": {
+            "mock-account-0|daily": {
+              "n": 0,
+              "reward": 0,
+              "signups_per_post": null
+            },
+            "mock-account-1|daily": {
+              "n": 0,
+              "reward": 0,
+              "signups_per_post": null
+            },
+            "mock-account-2|daily": {
+              "n": 1,
+              "reward": 0,
+              "signups_per_post": 0.0
+            }
+          }
+        }
+      },
+      "external_calls": 0,
+      "comparison_complete_batch": false
+    },
+    "winner_decision": {
+      "status": "insufficient_evidence",
+      "high_arm": null,
+      "low_arm": null,
+      "causal_claim": false,
+      "unmeasured_is_low": false,
+      "pending_arms": [
+        "ARM-CART",
+        "ARM-DELIVERY",
+        "ARM-FOOD"
+      ],
+      "statistics": {
+        "ARM-CART": {
+          "mock-account-0|daily": {
+            "n": 1,
+            "reward": 0,
+            "signups_per_post": 0.0
+          },
+          "mock-account-1|daily": {
+            "n": 0,
+            "reward": 0,
+            "signups_per_post": null
+          },
+          "mock-account-2|daily": {
+            "n": 0,
+            "reward": 0,
+            "signups_per_post": null
+          }
+        },
+        "ARM-DELIVERY": {
+          "mock-account-0|daily": {
+            "n": 0,
+            "reward": 0,
+            "signups_per_post": null
+          },
+          "mock-account-1|daily": {
+            "n": 1,
+            "reward": 3,
+            "signups_per_post": 3.0
+          },
+          "mock-account-2|daily": {
+            "n": 0,
+            "reward": 0,
+            "signups_per_post": null
+          }
+        },
+        "ARM-FOOD": {
+          "mock-account-0|daily": {
+            "n": 0,
+            "reward": 0,
+            "signups_per_post": null
+          },
+          "mock-account-1|daily": {
+            "n": 0,
+            "reward": 0,
+            "signups_per_post": null
+          },
+          "mock-account-2|daily": {
+            "n": 1,
+            "reward": 0,
+            "signups_per_post": 0.0
+          }
+        }
+      },
+      "winner": null
+    },
+    "incumbent": null,
+    "generation_request": null,
+    "new_arms": [],
+    "mature_deployments": 3,
+    "synthetic_signups": 3
+  },
+  "state": {
+    "arms": {
+      "ARM-FOOD": {
+        "hypothesis": {
+          "arm_id": "ARM-FOOD",
+          "domain": "restaurant_availability",
+          "origin": "seed",
+          "parent_arm_id": null,
+          "audience": "SYNTHETIC: 반복 앱 작업을 확인하는 사람",
+          "problem": "restaurant_availability 확인을 반복하는 수고",
+          "offer": "Mu 사전 사용 신청",
+          "prediction": "확인된 신규 사전 신청이 생길 수 있다",
+          "falsifier": "반응에 위임 의사 없음·신청 없음이 반복되면 재검토",
+          "generator_id": "mock-hypothesis_generator",
+          "changed_axis": "request_frequency",
+          "evidence_refs": [
+            "EV-PRODUCT",
+            "EV-REACTION"
+          ]
+        },
+        "reviews": [
+          {
+            "accepted": true,
+            "rubric_id": "hypothesis_generator-v1",
+            "rubric_hash": "a890b73c59fea6e42161e4d25223ba4539b024080d7e4db9fa458e004992de48",
+            "review": {
+              "subject_hash": "67c4e689ed88da8793bb9977ae12418bc7aa96be921815017ebbb7c37fca193f",
+              "rubric_hash": "a890b73c59fea6e42161e4d25223ba4539b024080d7e4db9fa458e004992de48",
+              "role": "hypothesis_generator",
+              "agent_id": "mock-hypothesis_generator",
+              "criteria": {
+                "reaction_grounding": {
+                  "score": 2,
+                  "reason": "Synthetic pass fixture, not actual agent quality",
+                  "evidence_refs": [
+                    "EV-PRODUCT",
+                    "EV-REACTION"
+                  ]
+                },
+                "testability": {
+                  "score": 2,
+                  "reason": "Synthetic pass fixture, not actual agent quality",
+                  "evidence_refs": [
+                    "EV-PRODUCT",
+                    "EV-REACTION"
+                  ]
+                },
+                "novelty": {
+                  "score": 2,
+                  "reason": "Synthetic pass fixture, not actual agent quality",
+                  "evidence_refs": [
+                    "EV-PRODUCT",
+                    "EV-REACTION"
+                  ]
+                }
+              },
+              "gates": {
+                "evidence_referenced": {
+                  "status": "pass",
+                  "reason": "Synthetic fixture only",
+                  "evidence_refs": [
+                    "EV-PRODUCT",
+                    "EV-REACTION"
+                  ]
+                },
+                "no_unsupported_claims": {
+                  "status": "pass",
+                  "reason": "Synthetic fixture only",
+                  "evidence_refs": [
+                    "EV-PRODUCT",
+                    "EV-REACTION"
+                  ]
+                }
+              }
+            },
+            "is_conversion_reward": false,
+            "publication_authorized": false
+          },
+          {
+            "accepted": true,
+            "rubric_id": "hypothesis_reviewer-v1",
+            "rubric_hash": "39c34178fe8a3d418bfa3e823f837f463d27e5cc353db7ecd5037cd9e6fb71da",
+            "review": {
+              "subject_hash": "67c4e689ed88da8793bb9977ae12418bc7aa96be921815017ebbb7c37fca193f",
+              "rubric_hash": "39c34178fe8a3d418bfa3e823f837f463d27e5cc353db7ecd5037cd9e6fb71da",
+              "role": "hypothesis_reviewer",
+              "agent_id": "mock-hypothesis_reviewer",
+              "criteria": {
+                "evidence_quality": {
+                  "score": 2,
+                  "reason": "Synthetic pass fixture, not actual agent quality",
+                  "evidence_refs": [
+                    "EV-PRODUCT",
+                    "EV-REACTION"
+                  ]
+                },
+                "metric_link": {
+                  "score": 2,
+                  "reason": "Synthetic pass fixture, not actual agent quality",
+                  "evidence_refs": [
+                    "EV-PRODUCT",
+                    "EV-REACTION"
+                  ]
+                },
+                "identifiability": {
+                  "score": 2,
+                  "reason": "Synthetic pass fixture, not actual agent quality",
+                  "evidence_refs": [
+                    "EV-PRODUCT",
+                    "EV-REACTION"
+                  ]
+                }
+              },
+              "gates": {
+                "evidence_referenced": {
+                  "status": "pass",
+                  "reason": "Synthetic fixture only",
+                  "evidence_refs": [
+                    "EV-PRODUCT",
+                    "EV-REACTION"
+                  ]
+                },
+                "no_unsupported_claims": {
+                  "status": "pass",
+                  "reason": "Synthetic fixture only",
+                  "evidence_refs": [
+                    "EV-PRODUCT",
+                    "EV-REACTION"
+                  ]
+                }
+              }
+            },
+            "is_conversion_reward": false,
+            "publication_authorized": false
+          }
+        ],
+        "status": "active"
+      },
+      "ARM-DELIVERY": {
+        "hypothesis": {
+          "arm_id": "ARM-DELIVERY",
+          "domain": "delivery_tracking",
+          "origin": "seed",
+          "parent_arm_id": null,
+          "audience": "SYNTHETIC: 반복 앱 작업을 확인하는 사람",
+          "problem": "delivery_tracking 확인을 반복하는 수고",
+          "offer": "Mu 사전 사용 신청",
+          "prediction": "확인된 신규 사전 신청이 생길 수 있다",
+          "falsifier": "반응에 위임 의사 없음·신청 없음이 반복되면 재검토",
+          "generator_id": "mock-hypothesis_generator",
+          "changed_axis": "request_frequency",
+          "evidence_refs": [
+            "EV-PRODUCT",
+            "EV-REACTION"
+          ]
+        },
+        "reviews": [
+          {
+            "accepted": true,
+            "rubric_id": "hypothesis_generator-v1",
+            "rubric_hash": "a890b73c59fea6e42161e4d25223ba4539b024080d7e4db9fa458e004992de48",
+            "review": {
+              "subject_hash": "e2fdb856545cd6c813323839979ee7e83b0d4129b15ae18bdf3bde040d454402",
+              "rubric_hash": "a890b73c59fea6e42161e4d25223ba4539b024080d7e4db9fa458e004992de48",
+              "role": "hypothesis_generator",
+              "agent_id": "mock-hypothesis_generator",
+              "criteria": {
+                "reaction_grounding": {
+                  "score": 2,
+                  "reason": "Synthetic pass fixture, not actual agent quality",
+                  "evidence_refs": [
+                    "EV-PRODUCT",
+                    "EV-REACTION"
+                  ]
+                },
+                "testability": {
+                  "score": 2,
+                  "reason": "Synthetic pass fixture, not actual agent quality",
+                  "evidence_refs": [
+                    "EV-PRODUCT",
+                    "EV-REACTION"
+                  ]
+                },
+                "novelty": {
+                  "score": 2,
+                  "reason": "Synthetic pass fixture, not actual agent quality",
+                  "evidence_refs": [
+                    "EV-PRODUCT",
+                    "EV-REACTION"
+                  ]
+                }
+              },
+              "gates": {
+                "evidence_referenced": {
+                  "status": "pass",
+                  "reason": "Synthetic fixture only",
+                  "evidence_refs": [
+                    "EV-PRODUCT",
+                    "EV-REACTION"
+                  ]
+                },
+                "no_unsupported_claims": {
+                  "status": "pass",
+                  "reason": "Synthetic fixture only",
+                  "evidence_refs": [
+                    "EV-PRODUCT",
+                    "EV-REACTION"
+                  ]
+                }
+              }
+            },
+            "is_conversion_reward": false,
+            "publication_authorized": false
+          },
+          {
+            "accepted": true,
+            "rubric_id": "hypothesis_reviewer-v1",
+            "rubric_hash": "39c34178fe8a3d418bfa3e823f837f463d27e5cc353db7ecd5037cd9e6fb71da",
+            "review": {
+              "subject_hash": "e2fdb856545cd6c813323839979ee7e83b0d4129b15ae18bdf3bde040d454402",
+              "rubric_hash": "39c34178fe8a3d418bfa3e823f837f463d27e5cc353db7ecd5037cd9e6fb71da",
+              "role": "hypothesis_reviewer",
+              "agent_id": "mock-hypothesis_reviewer",
+              "criteria": {
+                "evidence_quality": {
+                  "score": 2,
+                  "reason": "Synthetic pass fixture, not actual agent quality",
+                  "evidence_refs": [
+                    "EV-PRODUCT",
+                    "EV-REACTION"
+                  ]
+                },
+                "metric_link": {
+                  "score": 2,
+                  "reason": "Synthetic pass fixture, not actual agent quality",
+                  "evidence_refs": [
+                    "EV-PRODUCT",
+                    "EV-REACTION"
+                  ]
+                },
+                "identifiability": {
+                  "score": 2,
+                  "reason": "Synthetic pass fixture, not actual agent quality",
+                  "evidence_refs": [
+                    "EV-PRODUCT",
+                    "EV-REACTION"
+                  ]
+                }
+              },
+              "gates": {
+                "evidence_referenced": {
+                  "status": "pass",
+                  "reason": "Synthetic fixture only",
+                  "evidence_refs": [
+                    "EV-PRODUCT",
+                    "EV-REACTION"
+                  ]
+                },
+                "no_unsupported_claims": {
+                  "status": "pass",
+                  "reason": "Synthetic fixture only",
+                  "evidence_refs": [
+                    "EV-PRODUCT",
+                    "EV-REACTION"
+                  ]
+                }
+              }
+            },
+            "is_conversion_reward": false,
+            "publication_authorized": false
+          }
+        ],
+        "status": "active"
+      },
+      "ARM-CART": {
+        "hypothesis": {
+          "arm_id": "ARM-CART",
+          "domain": "shopping_cart",
+          "origin": "seed",
+          "parent_arm_id": null,
+          "audience": "SYNTHETIC: 반복 앱 작업을 확인하는 사람",
+          "problem": "shopping_cart 확인을 반복하는 수고",
+          "offer": "Mu 사전 사용 신청",
+          "prediction": "확인된 신규 사전 신청이 생길 수 있다",
+          "falsifier": "반응에 위임 의사 없음·신청 없음이 반복되면 재검토",
+          "generator_id": "mock-hypothesis_generator",
+          "changed_axis": "request_frequency",
+          "evidence_refs": [
+            "EV-PRODUCT",
+            "EV-REACTION"
+          ]
+        },
+        "reviews": [
+          {
+            "accepted": true,
+            "rubric_id": "hypothesis_generator-v1",
+            "rubric_hash": "a890b73c59fea6e42161e4d25223ba4539b024080d7e4db9fa458e004992de48",
+            "review": {
+              "subject_hash": "db92809b707b86055d07a7ca81febdc1840afbcd57941da97438c040f842c03d",
+              "rubric_hash": "a890b73c59fea6e42161e4d25223ba4539b024080d7e4db9fa458e004992de48",
+              "role": "hypothesis_generator",
+              "agent_id": "mock-hypothesis_generator",
+              "criteria": {
+                "reaction_grounding": {
+                  "score": 2,
+                  "reason": "Synthetic pass fixture, not actual agent quality",
+                  "evidence_refs": [
+                    "EV-PRODUCT",
+                    "EV-REACTION"
+                  ]
+                },
+                "testability": {
+                  "score": 2,
+                  "reason": "Synthetic pass fixture, not actual agent quality",
+                  "evidence_refs": [
+                    "EV-PRODUCT",
+                    "EV-REACTION"
+                  ]
+                },
+                "novelty": {
+                  "score": 2,
+                  "reason": "Synthetic pass fixture, not actual agent quality",
+                  "evidence_refs": [
+                    "EV-PRODUCT",
+                    "EV-REACTION"
+                  ]
+                }
+              },
+              "gates": {
+                "evidence_referenced": {
+                  "status": "pass",
+                  "reason": "Synthetic fixture only",
+                  "evidence_refs": [
+                    "EV-PRODUCT",
+                    "EV-REACTION"
+                  ]
+                },
+                "no_unsupported_claims": {
+                  "status": "pass",
+                  "reason": "Synthetic fixture only",
+                  "evidence_refs": [
+                    "EV-PRODUCT",
+                    "EV-REACTION"
+                  ]
+                }
+              }
+            },
+            "is_conversion_reward": false,
+            "publication_authorized": false
+          },
+          {
+            "accepted": true,
+            "rubric_id": "hypothesis_reviewer-v1",
+            "rubric_hash": "39c34178fe8a3d418bfa3e823f837f463d27e5cc353db7ecd5037cd9e6fb71da",
+            "review": {
+              "subject_hash": "db92809b707b86055d07a7ca81febdc1840afbcd57941da97438c040f842c03d",
+              "rubric_hash": "39c34178fe8a3d418bfa3e823f837f463d27e5cc353db7ecd5037cd9e6fb71da",
+              "role": "hypothesis_reviewer",
+              "agent_id": "mock-hypothesis_reviewer",
+              "criteria": {
+                "evidence_quality": {
+                  "score": 2,
+                  "reason": "Synthetic pass fixture, not actual agent quality",
+                  "evidence_refs": [
+                    "EV-PRODUCT",
+                    "EV-REACTION"
+                  ]
+                },
+                "metric_link": {
+                  "score": 2,
+                  "reason": "Synthetic pass fixture, not actual agent quality",
+                  "evidence_refs": [
+                    "EV-PRODUCT",
+                    "EV-REACTION"
+                  ]
+                },
+                "identifiability": {
+                  "score": 2,
+                  "reason": "Synthetic pass fixture, not actual agent quality",
+                  "evidence_refs": [
+                    "EV-PRODUCT",
+                    "EV-REACTION"
+                  ]
+                }
+              },
+              "gates": {
+                "evidence_referenced": {
+                  "status": "pass",
+                  "reason": "Synthetic fixture only",
+                  "evidence_refs": [
+                    "EV-PRODUCT",
+                    "EV-REACTION"
+                  ]
+                },
+                "no_unsupported_claims": {
+                  "status": "pass",
+                  "reason": "Synthetic fixture only",
+                  "evidence_refs": [
+                    "EV-PRODUCT",
+                    "EV-REACTION"
+                  ]
+                }
+              }
+            },
+            "is_conversion_reward": false,
+            "publication_authorized": false
+          }
+        ],
+        "status": "active"
+      }
+    },
+    "assets": {
+      "ARM-FOOD": {
+        "asset_id": "ASSET-0c75ef89e390ac65",
+        "body": "MOCK ONLY: restaurant_availability 확인을 반복하는 수고를 메신저로 부탁한다면? 현재 사전 신청 단계. https://example.invalid/mock-signup",
+        "review": {
+          "accepted": true,
+          "rubric_id": "content_writer-v1",
+          "rubric_hash": "c2d64b68d0d5ee41e5204c3b64aa6c3ad0ae5070d463b24c59371e674785c2f5",
+          "review": {
+            "subject_hash": "0c75ef89e390ac65df79c738dc06db7df8d20492397a9c7da68a8878f757d744",
+            "rubric_hash": "c2d64b68d0d5ee41e5204c3b64aa6c3ad0ae5070d463b24c59371e674785c2f5",
+            "role": "content_writer",
+            "agent_id": "mock-content_writer",
+            "criteria": {
+              "hypothesis_fidelity": {
+                "score": 2,
+                "reason": "Synthetic pass fixture, not actual agent quality",
+                "evidence_refs": [
+                  "EV-PRODUCT",
+                  "EV-REACTION"
+                ]
+              },
+              "claim_support": {
+                "score": 2,
+                "reason": "Synthetic pass fixture, not actual agent quality",
+                "evidence_refs": [
+                  "EV-PRODUCT",
+                  "EV-REACTION"
+                ]
+              },
+              "attribution_cta": {
+                "score": 2,
+                "reason": "Synthetic pass fixture, not actual agent quality",
+                "evidence_refs": [
+                  "EV-PRODUCT",
+                  "EV-REACTION"
+                ]
+              }
+            },
+            "gates": {
+              "evidence_referenced": {
+                "status": "pass",
+                "reason": "Synthetic fixture only",
+                "evidence_refs": [
+                  "EV-PRODUCT",
+                  "EV-REACTION"
+                ]
+              },
+              "no_unsupported_claims": {
+                "status": "pass",
+                "reason": "Synthetic fixture only",
+                "evidence_refs": [
+                  "EV-PRODUCT",
+                  "EV-REACTION"
+                ]
+              }
+            }
+          },
+          "is_conversion_reward": false,
+          "publication_authorized": false
+        }
+      },
+      "ARM-DELIVERY": {
+        "asset_id": "ASSET-5a397973eb67bfed",
+        "body": "MOCK ONLY: delivery_tracking 확인을 반복하는 수고를 메신저로 부탁한다면? 현재 사전 신청 단계. https://example.invalid/mock-signup",
+        "review": {
+          "accepted": true,
+          "rubric_id": "content_writer-v1",
+          "rubric_hash": "c2d64b68d0d5ee41e5204c3b64aa6c3ad0ae5070d463b24c59371e674785c2f5",
+          "review": {
+            "subject_hash": "5a397973eb67bfedbb358cf543bc3d5f550ae6e505f26ad41a5240f97075c73d",
+            "rubric_hash": "c2d64b68d0d5ee41e5204c3b64aa6c3ad0ae5070d463b24c59371e674785c2f5",
+            "role": "content_writer",
+            "agent_id": "mock-content_writer",
+            "criteria": {
+              "hypothesis_fidelity": {
+                "score": 2,
+                "reason": "Synthetic pass fixture, not actual agent quality",
+                "evidence_refs": [
+                  "EV-PRODUCT",
+                  "EV-REACTION"
+                ]
+              },
+              "claim_support": {
+                "score": 2,
+                "reason": "Synthetic pass fixture, not actual agent quality",
+                "evidence_refs": [
+                  "EV-PRODUCT",
+                  "EV-REACTION"
+                ]
+              },
+              "attribution_cta": {
+                "score": 2,
+                "reason": "Synthetic pass fixture, not actual agent quality",
+                "evidence_refs": [
+                  "EV-PRODUCT",
+                  "EV-REACTION"
+                ]
+              }
+            },
+            "gates": {
+              "evidence_referenced": {
+                "status": "pass",
+                "reason": "Synthetic fixture only",
+                "evidence_refs": [
+                  "EV-PRODUCT",
+                  "EV-REACTION"
+                ]
+              },
+              "no_unsupported_claims": {
+                "status": "pass",
+                "reason": "Synthetic fixture only",
+                "evidence_refs": [
+                  "EV-PRODUCT",
+                  "EV-REACTION"
+                ]
+              }
+            }
+          },
+          "is_conversion_reward": false,
+          "publication_authorized": false
+        }
+      },
+      "ARM-CART": {
+        "asset_id": "ASSET-d3c27f1776af49b8",
+        "body": "MOCK ONLY: shopping_cart 확인을 반복하는 수고를 메신저로 부탁한다면? 현재 사전 신청 단계. https://example.invalid/mock-signup",
+        "review": {
+          "accepted": true,
+          "rubric_id": "content_writer-v1",
+          "rubric_hash": "c2d64b68d0d5ee41e5204c3b64aa6c3ad0ae5070d463b24c59371e674785c2f5",
+          "review": {
+            "subject_hash": "d3c27f1776af49b868f2fe24811000357498c5fcb797e4e7a3185d663a464db9",
+            "rubric_hash": "c2d64b68d0d5ee41e5204c3b64aa6c3ad0ae5070d463b24c59371e674785c2f5",
+            "role": "content_writer",
+            "agent_id": "mock-content_writer",
+            "criteria": {
+              "hypothesis_fidelity": {
+                "score": 2,
+                "reason": "Synthetic pass fixture, not actual agent quality",
+                "evidence_refs": [
+                  "EV-PRODUCT",
+                  "EV-REACTION"
+                ]
+              },
+              "claim_support": {
+                "score": 2,
+                "reason": "Synthetic pass fixture, not actual agent quality",
+                "evidence_refs": [
+                  "EV-PRODUCT",
+                  "EV-REACTION"
+                ]
+              },
+              "attribution_cta": {
+                "score": 2,
+                "reason": "Synthetic pass fixture, not actual agent quality",
+                "evidence_refs": [
+                  "EV-PRODUCT",
+                  "EV-REACTION"
+                ]
+              }
+            },
+            "gates": {
+              "evidence_referenced": {
+                "status": "pass",
+                "reason": "Synthetic fixture only",
+                "evidence_refs": [
+                  "EV-PRODUCT",
+                  "EV-REACTION"
+                ]
+              },
+              "no_unsupported_claims": {
+                "status": "pass",
+                "reason": "Synthetic fixture only",
+                "evidence_refs": [
+                  "EV-PRODUCT",
+                  "EV-REACTION"
+                ]
+              }
+            }
+          },
+          "is_conversion_reward": false,
+          "publication_authorized": false
+        }
+      }
+    },
+    "deployments": {
+      "DEP-c25ca4b45eb7088c": {
+        "campaign_id": "MOCK-PORTFOLIO",
+        "arm_id": "ARM-CART",
+        "asset_id": "ASSET-d3c27f1776af49b8",
+        "body": "MOCK ONLY: shopping_cart 확인을 반복하는 수고를 메신저로 부탁한다면? 현재 사전 신청 단계. https://example.invalid/mock-signup",
+        "account_id": "mock-account-0",
+        "context": "mock-account-0|daily",
+        "planned_at": "2026-10-01T00:00:00+00:00",
+        "policy_version": 1,
+        "allocation_reason": "balanced_initial_test",
+        "deployment_id": "DEP-c25ca4b45eb7088c",
+        "requires_human_approval": true,
+        "posted_at": "2026-10-01T00:00:00+00:00",
+        "url": "https://example.invalid/DEP-c25ca4b45eb7088c"
+      },
+      "DEP-85525921ded8da3c": {
+        "campaign_id": "MOCK-PORTFOLIO",
+        "arm_id": "ARM-DELIVERY",
+        "asset_id": "ASSET-5a397973eb67bfed",
+        "body": "MOCK ONLY: delivery_tracking 확인을 반복하는 수고를 메신저로 부탁한다면? 현재 사전 신청 단계. https://example.invalid/mock-signup",
+        "account_id": "mock-account-1",
+        "context": "mock-account-1|daily",
+        "planned_at": "2026-10-01T00:00:00+00:00",
+        "policy_version": 1,
+        "allocation_reason": "balanced_initial_test",
+        "deployment_id": "DEP-85525921ded8da3c",
+        "requires_human_approval": true,
+        "posted_at": "2026-10-01T00:00:00+00:00",
+        "url": "https://example.invalid/DEP-85525921ded8da3c"
+      },
+      "DEP-b27e38f48a837128": {
+        "campaign_id": "MOCK-PORTFOLIO",
+        "arm_id": "ARM-FOOD",
+        "asset_id": "ASSET-0c75ef89e390ac65",
+        "body": "MOCK ONLY: restaurant_availability 확인을 반복하는 수고를 메신저로 부탁한다면? 현재 사전 신청 단계. https://example.invalid/mock-signup",
+        "account_id": "mock-account-2",
+        "context": "mock-account-2|daily",
+        "planned_at": "2026-10-01T00:00:00+00:00",
+        "policy_version": 1,
+        "allocation_reason": "balanced_initial_test",
+        "deployment_id": "DEP-b27e38f48a837128",
+        "requires_human_approval": true,
+        "posted_at": "2026-10-01T00:00:00+00:00",
+        "url": "https://example.invalid/DEP-b27e38f48a837128"
+      },
+      "DEP-e41525fe5b153e8a": {
+        "campaign_id": "MOCK-PORTFOLIO",
+        "arm_id": "ARM-CART",
+        "asset_id": "ASSET-d3c27f1776af49b8",
+        "body": "MOCK ONLY: shopping_cart 확인을 반복하는 수고를 메신저로 부탁한다면? 현재 사전 신청 단계. https://example.invalid/mock-signup",
+        "account_id": "mock-account-1",
+        "context": "mock-account-1|daily",
+        "planned_at": "2026-10-02T00:00:00+00:00",
+        "policy_version": 1,
+        "allocation_reason": "balanced_initial_test",
+        "deployment_id": "DEP-e41525fe5b153e8a",
+        "requires_human_approval": true,
+        "posted_at": "2026-10-02T00:00:00+00:00",
+        "url": "https://example.invalid/DEP-e41525fe5b153e8a"
+      },
+      "DEP-fb53a72b4ce5c886": {
+        "campaign_id": "MOCK-PORTFOLIO",
+        "arm_id": "ARM-DELIVERY",
+        "asset_id": "ASSET-5a397973eb67bfed",
+        "body": "MOCK ONLY: delivery_tracking 확인을 반복하는 수고를 메신저로 부탁한다면? 현재 사전 신청 단계. https://example.invalid/mock-signup",
+        "account_id": "mock-account-2",
+        "context": "mock-account-2|daily",
+        "planned_at": "2026-10-02T00:00:00+00:00",
+        "policy_version": 1,
+        "allocation_reason": "balanced_initial_test",
+        "deployment_id": "DEP-fb53a72b4ce5c886",
+        "requires_human_approval": true,
+        "posted_at": "2026-10-02T00:00:00+00:00",
+        "url": "https://example.invalid/DEP-fb53a72b4ce5c886"
+      },
+      "DEP-8a4bf9ee3a290fa0": {
+        "campaign_id": "MOCK-PORTFOLIO",
+        "arm_id": "ARM-FOOD",
+        "asset_id": "ASSET-0c75ef89e390ac65",
+        "body": "MOCK ONLY: restaurant_availability 확인을 반복하는 수고를 메신저로 부탁한다면? 현재 사전 신청 단계. https://example.invalid/mock-signup",
+        "account_id": "mock-account-0",
+        "context": "mock-account-0|daily",
+        "planned_at": "2026-10-02T00:00:00+00:00",
+        "policy_version": 1,
+        "allocation_reason": "balanced_initial_test",
+        "deployment_id": "DEP-8a4bf9ee3a290fa0",
+        "requires_human_approval": true,
+        "posted_at": "2026-10-02T00:00:00+00:00",
+        "url": "https://example.invalid/DEP-8a4bf9ee3a290fa0"
+      }
+    },
+    "outcomes": {
+      "DEP-c25ca4b45eb7088c": {
+        "deployment_id": "DEP-c25ca4b45eb7088c",
+        "campaign_id": "MOCK-PORTFOLIO",
+        "window_end": "2026-10-02T00:00:00+00:00",
+        "observed_through": "2026-10-02T00:00:00+00:00",
+        "credit_ids": [],
+        "evidence_refs": [
+          "EV-MOCK-RECEIPTS"
+        ],
+        "verified_receipts": true,
+        "baseline_excluded": true,
+        "campaign_deduplicated": true,
+        "complete": true
+      },
+      "DEP-85525921ded8da3c": {
+        "deployment_id": "DEP-85525921ded8da3c",
+        "campaign_id": "MOCK-PORTFOLIO",
+        "window_end": "2026-10-02T00:00:00+00:00",
+        "observed_through": "2026-10-02T00:00:00+00:00",
+        "credit_ids": [
+          "CREDIT-DEP-85525921ded8da3c-0",
+          "CREDIT-DEP-85525921ded8da3c-1",
+          "CREDIT-DEP-85525921ded8da3c-2"
+        ],
+        "evidence_refs": [
+          "EV-MOCK-RECEIPTS"
+        ],
+        "verified_receipts": true,
+        "baseline_excluded": true,
+        "campaign_deduplicated": true,
+        "complete": true
+      },
+      "DEP-b27e38f48a837128": {
+        "deployment_id": "DEP-b27e38f48a837128",
+        "campaign_id": "MOCK-PORTFOLIO",
+        "window_end": "2026-10-02T00:00:00+00:00",
+        "observed_through": "2026-10-02T00:00:00+00:00",
+        "credit_ids": [],
+        "evidence_refs": [
+          "EV-MOCK-RECEIPTS"
+        ],
+        "verified_receipts": true,
+        "baseline_excluded": true,
+        "campaign_deduplicated": true,
+        "complete": true
+      }
+    },
+    "incumbent": null,
+    "promotions": [],
+    "used_credit_ids": [
+      "CREDIT-DEP-85525921ded8da3c-0",
+      "CREDIT-DEP-85525921ded8da3c-1",
+      "CREDIT-DEP-85525921ded8da3c-2"
+    ],
+    "generation_requests": {},
+    "generation_completed": []
+  }
+}

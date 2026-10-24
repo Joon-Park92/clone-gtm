@@ -33,3 +33,5 @@ Threads 계정은 사용자 제공 @mu.agent다. 인증정보는 사용자 요�
 발표용 설명은 루트 [PRESENTATION.md](PRESENTATION.md)에 있다. 제품·목표·단계별 기준·Rubric·실제 성과에 따른 개선과 검증 범위를 순서대로 설명한다.
 
 최신 주 루프는 [댓글·커뮤니티 반응 수집](docs/gtm/reaction-collection.md) → [전환 병목 Rubric](docs/gtm/rubric.md) → 변경 하나 → 재관측이다. `src/feedback.py`가 반응 근거로 다음 행동을 선택하고 콘텐츠 검토는 보조로 남긴다. 최신 Mock: [반응 기반 7일 실행](runs/mock/DEMO-20261024T081424-142339/report.md).
+
+최신 설계는 [높은·낮은·새 가설 병렬 비교](docs/gtm/portfolio-loop.md)다. `python3 scripts/mock_portfolio.py`로 다계정 슬롯·Rubric·관측·가설 확장을 재현한다. 확률 모델은 사용하지 않는다. 설정은 `config/portfolio.json`, 역할별 Rubric은 `config/rubrics/`, 코어는 `src/portfolio.py`다. 실제 모델·다계정 게시 연결은 미구현이다.

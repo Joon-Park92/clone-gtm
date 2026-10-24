@@ -1,0 +1,34 @@
+{
+  "id": "learning_reviewer-v1",
+  "role": "learning_reviewer",
+  "version": 1,
+  "criteria": [
+    {
+      "id": "mature_outcomes",
+      "question": "같은 관측 구간이 끝난 접수만 비교하는가",
+      "required": true
+    },
+    {
+      "id": "counterevidence",
+      "question": "지연·누락·계정 차이·반대 의견을 고려하는가",
+      "required": true
+    },
+    {
+      "id": "next_test",
+      "question": "유지·폐기·파생·확장 이유와 다음 관측을 남겼는가",
+      "required": true
+    }
+  ],
+  "anchors": {
+    "0": "근거와 충돌하거나 기준을 충족하지 않음",
+    "1": "부분 근거 있으나 검증 조건 부족",
+    "2": "참조 가능한 근거와 검증 조건이 명시됨",
+    "null": "미확인"
+  },
+  "minimum_each": 2,
+  "gates": [
+    "evidence_referenced",
+    "no_unsupported_claims"
+  ],
+  "not_a_reward": true
+}

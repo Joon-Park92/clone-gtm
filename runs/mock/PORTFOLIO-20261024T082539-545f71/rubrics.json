@@ -1,0 +1,138 @@
+{
+  "hypothesis_generator": {
+    "id": "hypothesis_generator-v1",
+    "role": "hypothesis_generator",
+    "version": 1,
+    "criteria": [
+      {
+        "id": "reaction_grounding",
+        "question": "관측 반응 또는 초기 제품 근거에서 나왔는가",
+        "required": true
+      },
+      {
+        "id": "testability",
+        "question": "대상·앱 작업·제안·예상·반증 조건이 명확한가",
+        "required": true
+      },
+      {
+        "id": "novelty",
+        "question": "기존 가설과 다른 검증 축이 명시됐는가",
+        "required": true
+      }
+    ],
+    "anchors": {
+      "0": "근거와 충돌하거나 기준을 충족하지 않음",
+      "1": "부분 근거 있으나 검증 조건 부족",
+      "2": "참조 가능한 근거와 검증 조건이 명시됨",
+      "null": "미확인"
+    },
+    "minimum_each": 2,
+    "gates": [
+      "evidence_referenced",
+      "no_unsupported_claims"
+    ],
+    "not_a_reward": true
+  },
+  "hypothesis_reviewer": {
+    "id": "hypothesis_reviewer-v1",
+    "role": "hypothesis_reviewer",
+    "version": 1,
+    "criteria": [
+      {
+        "id": "evidence_quality",
+        "question": "긍정·부정 원문과 추론을 구분했는가",
+        "required": true
+      },
+      {
+        "id": "metric_link",
+        "question": "확인된 신규 신청으로 검증할 수 있는가",
+        "required": true
+      },
+      {
+        "id": "identifiability",
+        "question": "계정·시각·귀속 혼동을 통제할 계획인가",
+        "required": true
+      }
+    ],
+    "anchors": {
+      "0": "근거와 충돌하거나 기준을 충족하지 않음",
+      "1": "부분 근거 있으나 검증 조건 부족",
+      "2": "참조 가능한 근거와 검증 조건이 명시됨",
+      "null": "미확인"
+    },
+    "minimum_each": 2,
+    "gates": [
+      "evidence_referenced",
+      "no_unsupported_claims"
+    ],
+    "not_a_reward": true
+  },
+  "content_writer": {
+    "id": "content_writer-v1",
+    "role": "content_writer",
+    "version": 1,
+    "criteria": [
+      {
+        "id": "hypothesis_fidelity",
+        "question": "승인된 가설의 대상·제안을 유지하는가",
+        "required": true
+      },
+      {
+        "id": "claim_support",
+        "question": "실제 근거 범위에서 제품 상태를 설명하는가",
+        "required": true
+      },
+      {
+        "id": "attribution_cta",
+        "question": "하나의 신청 행동과 배포 식별 경로가 있는가",
+        "required": true
+      }
+    ],
+    "anchors": {
+      "0": "근거와 충돌하거나 기준을 충족하지 않음",
+      "1": "부분 근거 있으나 검증 조건 부족",
+      "2": "참조 가능한 근거와 검증 조건이 명시됨",
+      "null": "미확인"
+    },
+    "minimum_each": 2,
+    "gates": [
+      "evidence_referenced",
+      "no_unsupported_claims"
+    ],
+    "not_a_reward": true
+  },
+  "learning_reviewer": {
+    "id": "learning_reviewer-v1",
+    "role": "learning_reviewer",
+    "version": 1,
+    "criteria": [
+      {
+        "id": "mature_outcomes",
+        "question": "같은 관측 구간이 끝난 접수만 비교하는가",
+        "required": true
+      },
+      {
+        "id": "counterevidence",
+        "question": "지연·누락·계정 차이·반대 의견을 고려하는가",
+        "required": true
+      },
+      {
+        "id": "next_test",
+        "question": "유지·폐기·파생·확장 이유와 다음 관측을 남겼는가",
+        "required": true
+      }
+    ],
+    "anchors": {
+      "0": "근거와 충돌하거나 기준을 충족하지 않음",
+      "1": "부분 근거 있으나 검증 조건 부족",
+      "2": "참조 가능한 근거와 검증 조건이 명시됨",
+      "null": "미확인"
+    },
+    "minimum_each": 2,
+    "gates": [
+      "evidence_referenced",
+      "no_unsupported_claims"
+    ],
+    "not_a_reward": true
+  }
+}

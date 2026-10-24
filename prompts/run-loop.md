@@ -1,5 +1,7 @@
 # 실제 반응으로 Mu GTM 루프 실행
 
+다중 가설·운영 계정 실행은 prompts/run-portfolio.md를 진입점으로 사용한다. 이 문서는 개별 반응 수집과 게시 검토의 하위 절차다.
+
 PLAN.md, config/loop.json, docs/gtm/rubric.md, docs/gtm/reaction-collection.md와 이전 실행을 읽는다. 주 지표는 7일 귀속 신규 신청자 수다.
 
 1. 같은 캠페인의 모든 게시 URL을 확인한다. 이전 게시글의 댓글·답글과 등록된 커뮤니티 대화를 수집한다. 긍정만 고르지 않는다. 범위·시각·누락·중복을 기록한다. 없거나 접근 못하면 미수집으로 남긴다.
