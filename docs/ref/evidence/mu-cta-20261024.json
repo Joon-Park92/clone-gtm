@@ -1,0 +1,38 @@
+{
+  "evidence_id": "EV-MU-CTA-20261024",
+  "observed_at": "2026-10-24T07:33:52.114392+00:00",
+  "method": "Public HTTP GET; no form submission or email sent",
+  "landing_url": "https://mu.pairful.ai/ko",
+  "landing_http_status": 200,
+  "cta_href": "/w/go/ko",
+  "redirect_checks": [
+    {
+      "url": "https://mu.pairful.ai/w/go/ko",
+      "status": 302,
+      "destination_scheme": "mailto",
+      "destination": "support@pairful.ai",
+      "subject": [
+        "무 먼저 써보고 싶어요"
+      ],
+      "body": [
+        "안녕하세요! 무를 먼저 써보고 싶어요.\n\n주로 쓰는 메신저: "
+      ],
+      "campaign_preserved_in_mailto": false
+    },
+    {
+      "url": "https://mu.pairful.ai/w/go/ko?campaign_id=MU-KO-001&utm_campaign=MU-KO-001",
+      "status": 302,
+      "destination_scheme": "mailto",
+      "destination": "support@pairful.ai",
+      "subject": [
+        "무 먼저 써보고 싶어요"
+      ],
+      "body": [
+        "안녕하세요! 무를 먼저 써보고 싶어요.\n\n주로 쓰는 메신저: "
+      ],
+      "campaign_preserved_in_mailto": false
+    }
+  ],
+  "receipt_verified": false,
+  "mailbox_connection_verified": false
+}

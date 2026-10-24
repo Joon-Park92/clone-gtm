@@ -4,6 +4,14 @@ Pairful Mu를 위한 7일 GTM 실험 기록 및 파일 기반 실행기. 인기 
 
 [GTM 전략·ICP](docs/gtm/strategy.md) → [PLAN](PLAN.md) → [첫 루프 설계](docs/plan/first-loop.md) → [아키텍처](docs/architecture.md) → [실험](docs/gtm/experiment.md) → [측정](docs/gtm/measurement.md) 순서로 읽는다.
 
-사용자와 에이전트 하나가 운영한다. 외부 시스템은 Adapter 계약으로 분리한다. 실환경 연결·게시·메일 발송·스케줄러 활성화는 완료되지 않았다. 실행 방법은 구현 후 아래에 추가한다.
+사용자와 에이전트 하나가 운영한다. 외부 시스템은 Adapter 계약으로 분리한다. 실환경 연결·게시·메일 발송·스케줄러 활성화는 완료되지 않았다. 로컬 코어 실행 방법은 아래와 같다.
 
 개인정보와 원본 신청 자료는 Git 밖의 private/에 둔다. 공개 기록에는 집계와 정제된 증거만 둔다. 미측정은 null이며 0과 다르다. 합성 테스트는 실적이 아니다.
+
+## 로컬 실행
+
+Python 3 표준 라이브러리만 사용한다. 저장소 루트에서 `python3 src/loop.py`를 실행하면 config/loop.json을 읽고 runs/RUN-*.json에 새 기록을 만든다. 이전 캠페인 실행을 읽으며 외부 게시·메일 발송은 수행하지 않는다. 현재 미연결 Adapter는 unconnected로 남고 신청 수는 null이다.
+
+검증 명령: `python3 -m unittest discover -s tests -v`. 기존 8개 테스트는 합성 입력으로 승인 일치·누적 집계·이력·잠금을 검증하며 실제 전환 증거가 아니다.
+
+Adapter driver는 unconnected 또는 manual_json이다. manual_json.path는 설정 파일 디렉터리 기준으로 해석한다. 실제 MCP 구현은 아직 없으며, 입력에는 정제된 조사/승인/게시 영수증/집계만 전달한다. 실행 중단 후 .loop.lock이 남으면 실행 중인 프로세스가 없는지 먼저 확인한다. 기록을 덮어쓰거나 잠금을 무조건 삭제하지 않는다.

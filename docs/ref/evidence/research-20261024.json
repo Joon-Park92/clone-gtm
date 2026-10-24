@@ -1,0 +1,11 @@
+{
+  "status": "pending",
+  "observed_at": "2026-10-24T07:37:06.832501+00:00",
+  "reason": "공개 조사 완료; 조회 조작 불편과 고객·채널 적합성 추가 확인 대기",
+  "report": "docs/ref/customer-channel-research.md",
+  "reviewed_customer_sources": 3,
+  "reviewed_channels": 3,
+  "qualified_candidates": 0,
+  "signals": [],
+  "note": "반복 조회 행동을 조회 위임 의사로 과장하지 않음. qualified_candidates는 조사 판정 수이며 신청 성과 아님."
+}

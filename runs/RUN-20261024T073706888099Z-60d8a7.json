@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "run_id": "RUN-20261024T073706888099Z-60d8a7",
+  "campaign_id": "MU-KO-001",
+  "experiment_id": "EXP-MU-KO-001",
+  "started_at": "2026-10-24T07:37:06.888099+00:00",
+  "timezone": "Asia/Seoul",
+  "state": "awaiting_approval",
+  "mode": "local_coordination",
+  "previous_run": null,
+  "hypothesis": "인기 식당 예약을 위해 모바일 앱에서 가능한 날짜·시간을 확인하는 사람은 그 앱 조작을 카카오톡으로 맡기는 사용 방식에 관심을 갖고 사전 신청할 수 있다.",
+  "previous_recommendation": null,
+  "change_note": "공개 원문 3건·채널 3곳 조사 후 적격 근거 추가 확인 대기. 인기 식당→범용 Mu 메시지를 유지한 검토용 메이커로그 초안 및 제목 코드 CTA 준비. 최초 게시 전 준비이며 실측 기반 성과 개선 아님.",
+  "research": {
+    "status": "pending",
+    "signals": []
+  },
+  "asset": {
+    "asset_id": "MU-KO-001-A-7e8efe601a3cbc5b",
+    "body": "인기 식당 예약 확인부터, 카카오톡으로 앱 작업을 맡기는 Mu\n\n“이번 토요일 저녁, 두 명 예약 가능한지 확인해줘.”\n\n인기 식당에 가려고 모바일 앱을 열어 날짜와 시간을 확인하는 일, 카카오톡으로 부탁할 수 있다면 어떨까요?\n\n저희가 준비하고 있는 Pairful의 Mu는 앱을 직접 열고 조작하는 개인 비서입니다. 식당 예약 가능 여부 확인부터 배송 조회, 장바구니 담기까지, 모바일 앱 안에서 해야 하는 일을 채팅으로 맡기는 사용 방식을 만들고 있습니다.\n\n현재는 사전 사용 신청을 받고 있으며, 신청 후 순차적으로 연락드립니다. 이 예시는 예약 가능한 시간을 확인하는 요청입니다. 예약 확정은 사용자 승인을 거치는 방식으로 소개하고 있습니다.\n\n제품 소개: https://mu.pairful.ai/ko\n\n[Mu 사전 사용 신청하기](mailto:support@pairful.ai?subject=%5BMU-KO-001%5D%20%EB%AC%B4%20%EB%A8%BC%EC%A0%80%20%EC%8D%A8%EB%B3%B4%EA%B3%A0%20%EC%8B%B6%EC%96%B4%EC%9A%94)\n\n신청 링크를 누르면 메일 작성 화면이 열립니다. 내용을 확인하고 보내주시면 됩니다.\n\nMu에 가장 먼저 맡기고 싶은 앱 작업이 있다면 함께 알려주세요.",
+    "content_sha256": "7e8efe601a3cbc5b68f07aae854923b76257579a12e1b987c7724bb201f20a53",
+    "cta": "Mu 사전 사용 신청하기",
+    "attribution": {
+      "method": "email_subject_code",
+      "campaign_code": "MU-KO-001",
+      "verified": false,
+      "granularity": "campaign"
+    }
+  },
+  "approval": {
+    "status": "unconnected",
+    "matched": false
+  },
+  "publication": {
+    "status": "unconnected",
+    "url": null,
+    "posted_at": null
+  },
+  "measurement": {
+    "status": "unconnected",
+    "new_attributed_signups": null,
+    "unknown_source_signups": null,
+    "auxiliary": null
+  },
+  "next_action": {
+    "kind": "observe",
+    "reason": "미측정: 성과 판단 보류",
+    "one_change": "MeasurementAdapter 연결 및 접수·기준 검증"
+  },
+  "next_execution": {
+    "suggested_at": "2026-10-25T07:37:06.888099+00:00",
+    "owner": "사용자 + 에이전트 (담당 확정 전)",
+    "scheduled": false,
+    "mode": "manual"
+  },
+  "adapter_status": {
+    "research": "pending",
+    "approval": "unconnected",
+    "publication": "unconnected",
+    "measurement": "unconnected"
+  }
+}
